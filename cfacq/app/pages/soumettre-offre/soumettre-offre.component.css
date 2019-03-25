@@ -1,0 +1,10 @@
+.message{
+  position: relative;
+  background-color: #65af1b;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+}

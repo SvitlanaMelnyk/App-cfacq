@@ -1,0 +1,2 @@
+<button class="newButton" mat-raised-button (click)="newEvent()">Nouvel événement</button>
+<app-calendrier-component [events]="events" [editable]="true" (getInfo)="onGetInfo($event)" (changeMonth)="onChangeMonth($event.date, $event.dateEnd, $event.ville)" (edit)="newEvent($event)" (remove)="onRemove($event)"></app-calendrier-component>

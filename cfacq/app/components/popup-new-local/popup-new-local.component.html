@@ -1,0 +1,55 @@
+<h1 mat-dialog-title>Nouveau local</h1>
+<div mat-dialog-content>
+  <form class="forma-container" [formGroup]="form">
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Nom" formControlName="nom" required>
+        <mat-error *ngFor="let validation of error_messages.nom">
+          <mat-error class="error-message" *ngIf="form.get('nom').hasError(validation.type) &&
+          (form.get('nom').dirty || form.get('nom').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <div formArrayName="salles" *ngFor="let salle of form.get('salles').controls; let i = index">
+      <div class="formTitle">Salles</div>
+      <div class="salle inputForm" [formGroupName]="i">
+        <div class="salleContent">
+          <mat-form-field class="matFieldDelete">
+            <mat-select required formControlName="id">
+              <mat-option *ngFor="let elem of salles" [value]="elem.id" (onSelectionChange)="selectSalle(i, elem)">{{elem.nom}}</mat-option>
+            </mat-select>
+            <mat-error *ngFor="let validation of error_messages.salles">
+              <mat-error class="error-message" *ngIf="form.get('salles').hasError(validation.type) &&
+            (form.get('salles').dirty || form.get('salles').touched)">{{validation.message}}
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <span class="deleteButton"><i class="tiny material-icons" (click)="deleteSalle(i)">clear</i></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="buttonsForm col s12 m12 l12">
+        <button type="button" mat-button class="col btn grey lighten-3" (click)="addSalle()">Ajouter</button>
+      </div>
+    </div>
+    <div class="formTitle">Bureau</div>
+    <mat-form-field class="field">
+      <mat-select formControlName="bureau" required>
+        <mat-option *ngFor="let elem of bureaux" [value]="elem">{{elem.nom}}</mat-option>
+      </mat-select>
+      <mat-error *ngFor="let validation of error_messages.bureau">
+        <mat-error class="error-message" *ngIf="form.get('bureau').hasError(validation.type) &&
+          (form.get('bureau').dirty || form.get('bureau').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="close()">Annuler</button>
+      <button mat-button color="primary" mat-raised-button (click)="create()">{{data.local.id ? 'Modifier' : 'Créer'}}
+      </button>
+    </div>
+  </form>
+</div>

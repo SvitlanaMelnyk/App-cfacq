@@ -1,0 +1,112 @@
+.row .col{
+  padding: 0;
+}
+
+.marginTop {
+  margin-top: 15px;
+}
+
+.actualite{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.actualiteContent{
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-column-gap: 20px;
+}
+
+.image{
+  width: 300px !important;
+  max-height: 250px;
+  background-color: #f0f0f0;
+  box-shadow: 4px 4px 8px rgba(111, 110, 110, 0.6);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image img{
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.description{
+  position: relative;
+}
+
+.ellipsis {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.5em;
+  max-height: 10.5em;
+  text-align: justify;
+  margin-bottom: 60px;
+}
+
+.ellipsis:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.consultButton{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.ellipsis:after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  /* set width and height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* bg color = bg color under block */
+  background: white;
+}
+
+.btn {
+  text-transform: none!important;
+  color: black!important;
+  float: right;
+  margin: 15px 0 0 0;
+  padding: 0 10px!important;
+}
+
+@media screen and (min-width: 2000px) {
+  .ellipsis:after {
+    /* points in the end */
+    content: '';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    /* set width and height */
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    /* bg color = bg color under block */
+    background: white;
+  }
+
+  .btn {
+    text-transform: none!important;
+    color: black!important;
+    float: right;
+    margin-top: 15px;
+    padding: 0 10px!important;
+  }
+
+  .responsive-img {
+    padding-right: 1em;
+  }
+}

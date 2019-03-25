@@ -1,0 +1,44 @@
+<form [formGroup]="filterForm">
+  <div class="marginT">
+    <mat-form-field class="colPadding col s12">
+      <mat-select placeholder="Villes" formControlName="villes" multiple (selectionChange)="onChange()">
+        <mat-select-trigger>
+          {{filterForm.get('villes').value[0]?.name}}
+          <span *ngIf="filterForm.get('villes').value?.length > 1" class="example-additional-selection">
+          (+{{filterForm.get('villes').value.length - 1}} {{filterForm.get('villes').value?.length === 2 ? 'autre' : 'autres'}})
+        </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let ville of villes" [value]="ville">{{ville.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="colPadding col s12">
+      <mat-select placeholder="Type de postes" formControlName="typePostes" multiple (selectionChange)="onChange()">
+        <mat-select-trigger>
+          {{filterForm.get('typePostes').value[0]?.name}}
+          <span *ngIf="filterForm.get('typePostes').value?.length > 1" class="example-additional-selection">
+          (+{{filterForm.get('typePostes').value.length - 1}} {{filterForm.get('typePostes').value?.length === 2 ? 'autre' : 'autres'}})
+        </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let typePoste of typePosteList" [value]="typePoste">{{typePoste.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="colPadding col s12">
+      <mat-select placeholder="Catégorie de postes" formControlName="categoriePostes" multiple
+                  (selectionChange)="onChange()">
+        <mat-select-trigger>
+          {{filterForm.get('categoriePostes').value[0]?.name}}
+          <span *ngIf="filterForm.get('categoriePostes').value?.length > 1" class="example-additional-selection">
+          (+{{filterForm.get('categoriePostes').value.length - 1}} {{filterForm.get('categoriePostes').value?.length === 2 ? 'autre' : 'autres'}})
+        </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let categoriePoste of categoriePosteList" [value]="categoriePoste">{{categoriePoste.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button class="btn grey lighten-3" (click)="onFetch()">Recherche</button>
+    <p class="clear"></p>
+  </div>
+</form>

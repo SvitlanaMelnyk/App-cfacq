@@ -1,0 +1,17 @@
+<div *ngFor="let about of aboutList">
+  <h5>{{about.name}}</h5>
+  <hr class="marginLine">
+  <p *ngIf="about.image">
+    <img class="responsive-img img" src="http://localhost/sitecfacq.web/actualite/show?id={{about.image.id}}">
+  </p>
+  <p class="text aboutText" >{{about.description}}
+  </p>
+  <div *ngIf="about.office">
+    <p class="aboutText" *ngFor="let t of about.office.text">
+      <b>{{t.text}}</b>
+    </p>
+    <p *ngFor="let i of about.office.images">
+      <img class="responsive-img image" src="http://localhost/sitecfacq.web/actualite/show?id={{i.images.id}}">
+    </p>
+  </div>
+</div>

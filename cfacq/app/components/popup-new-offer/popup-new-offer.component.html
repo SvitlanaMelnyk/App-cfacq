@@ -1,0 +1,4 @@
+<h1 mat-dialog-title>Modifier l'offre</h1>
+<div mat-dialog-content>
+  <app-form-post-offer [offer]="offer" [editing]="true" buttonText="Modifier" (cancel)="change()" (submit)="change($event)"></app-form-post-offer>
+</div>

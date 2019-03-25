@@ -1,0 +1,64 @@
+.menuContent {
+    background-color: #65af1b;
+    height: 49px;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.tabs .tab {
+  width: 170px;
+}
+
+.tabs .tab a {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.tabs .tab a:focus {
+  background-color: #47711c;
+  transition: 2s;
+}
+/*.menuTransfer{*/
+  /*display: grid;*/
+  /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+  /*padding-top: 0;*/
+  /*!*width: 550px;*!*/
+  /*margin: 0 auto;*/
+/*}*/
+
+/*.menuElem{*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*color: white;*/
+  /*font-weight: bold;*/
+  /*text-transform: uppercase;*/
+  /*margin: 0;  !* Square Buttons version *!*/
+  /*border-radius: 0;*/
+  /*height: 49px;*/
+/*}*/
+
+/*a.menuElem:hover {*/
+  /*background-color: #47711c;*/
+/*}*/
+
+.text {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 601px) {
+  .tabs .tab a {
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    padding: 0;
+  }
+}
+
+

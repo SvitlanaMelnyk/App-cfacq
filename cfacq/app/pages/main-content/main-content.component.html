@@ -1,0 +1,22 @@
+<div class="container" *ngIf="newsList.length > 0">
+  <div class="row">
+    <div class="col s12">
+      <h5>Actualités</h5>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col s12 m6 l4" *ngFor="let news of newsList">
+        <div class="card">
+          <div class="card-image imageScale cursor"  [routerLink]="['/nouvelle', {id: news.id}]">
+              <img *ngIf="news.images && news.images[0]" class="responsive-img imgMedias" src="http://localhost/sitecfacq.web/actualite/show?id={{news.images[0].id}}" alt={{news.name.nom}}>
+          </div>
+          <div class="card-content">
+            <p class="text">{{news.name}}</p>
+          </div>
+          <button mat-button class="col btn grey lighten-3 ensavoirplus" [routerLink]="['/nouvelle', {id: news.id}]">
+            <i class="material-icons right">add</i>En savoir
+          </button>
+        </div>
+      </div>
+  </div>
+</div>

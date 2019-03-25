@@ -1,0 +1,92 @@
+.colBackground {
+  background-color: rgba(192, 192, 192, 0.1);
+  margin-right: 50px;
+  box-shadow: 5px 5px 5px rgba(192, 192, 192, 0.6);
+  border: 1px solid lightgray;
+}
+
+.bureau{
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.bureauTitle{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.bureauContent{
+  margin: 0 auto;
+}
+
+.info{
+  padding-bottom: 40px;
+}
+
+.infoElem{
+  display: flex;
+}
+
+.infoElem .infoText:first-child{
+  margin-right: 20px;
+}
+
+.postes{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  padding-bottom: 40px;
+}
+
+.poste{
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+  background-color: #f6f6f6;
+}
+
+.adresse{
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+  background-color: #f6f6f6;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h6 {
+  margin: 1rem 0 2rem 0;
+}
+
+.margin {
+  margin: 1rem 2rem 2rem 0;
+}
+
+.link {
+  color: black;
+  text-decoration: underline;
+}
+
+ul {
+  margin: 2rem 0 1rem 0;
+}
+
+app-map {
+  height: 400px;
+  width: 100%;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .postes{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .postes{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+

@@ -1,0 +1,14 @@
+::ng-deep .cdk-global-scrollblock {
+  overflow-y: unset;
+}
+.content{
+  width: 500px;
+}
+.titre-offer{
+  border-bottom: 1px solid #000;
+}
+button {
+  margin-top: 20px;
+  background-color: #65af1b;
+  color: white;
+}

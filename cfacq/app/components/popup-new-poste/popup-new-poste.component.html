@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>Nouveau poste</h1>
+<div mat-dialog-content>
+  <form class="forma-container" [formGroup]="form">
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Nom et prénom" formControlName="nom" required>
+        <mat-error *ngFor="let validation of error_messages.nom">
+          <mat-error class="error-message" *ngIf="form.get('nom').hasError(validation.type) &&
+          (form.get('nom').dirty || form.get('nom').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Numéro de poste" formControlName="numero" required>
+        <mat-error *ngFor="let validation of error_messages.numero">
+          <mat-error class="error-message" *ngIf="form.get('numero').hasError(validation.type) &&
+          (form.get('numero').dirty || form.get('numero').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Titre" formControlName="titre" required>
+        <mat-error *ngFor="let validation of error_messages.titre">
+          <mat-error class="error-message" *ngIf="form.get('titre').hasError(validation.type) &&
+          (form.get('titre').dirty || form.get('titre').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Courriel" formControlName="courriel" required>
+        <mat-error *ngFor="let validation of error_messages.courriel">
+          <mat-error class="error-message" *ngIf="form.get('courriel').hasError(validation.type) &&
+          (form.get('courriel').dirty || form.get('courriel').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="field">
+      <div class="formTitle">Bureau</div>
+      <mat-select formControlName="bureau" required>
+        <mat-option *ngFor="let elem of bureaux" [value]="elem">{{elem.nom}}</mat-option>
+      </mat-select>
+      <mat-error *ngFor="let validation of error_messages.bureau">
+        <mat-error class="error-message" *ngIf="form.get('bureau').hasError(validation.type) &&
+          (form.get('bureau').dirty || form.get('bureau').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="close()">Annuler</button>
+      <button mat-button color="primary" mat-raised-button (click)="create()">{{data.poste.id ? 'Modifier' : 'Créer'}}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+.menuTransfer{
+  display: grid;
+  margin: 5px 0 0 0;
+}
+
+.menuElem {
+  background-color: #65af1b;
+  color: white;
+  margin: 7px 0 7px 0;
+  border-radius: 20px;
+  height: 35px;
+}
+
+.btn-floating{
+  /*float: right;*/
+  /*margin-left: 80%;*/
+  /*margin-top: 0;*/
+  /*margin-bottom: 10px;*/
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+a.menuElem:hover {
+  background-color: #47711c;
+}
+
+.text {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 8px;
+}
+
+
+

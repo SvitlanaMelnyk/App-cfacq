@@ -1,0 +1,50 @@
+.brand-logo {
+  width: 80px;
+  margin: 15px 0 0 0;
+
+}
+
+.home a:hover{
+  background-color: transparent !important;
+}
+
+ul {
+  margin: 0;
+  overflow-y: auto;
+}
+
+.menu-admin {
+  width: 220px;
+  background: #333;
+  height: 100%;
+  position: fixed;
+}
+
+a {
+  color: white;
+  width: 100%;
+  padding: 13px 15px;
+  display: block;
+}
+
+a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-admin mat-list-item {
+  color: white;
+  font-size: 14px;
+}
+
+.logout{
+  padding: 13px 15px;
+  cursor: pointer;
+  color: white !important;
+  background-color: rgba(204, 0, 0, 0.4);
+}
+.logout:hover{
+  background-color: rgba(204, 0, 0, 0.5);
+}
+
+
+

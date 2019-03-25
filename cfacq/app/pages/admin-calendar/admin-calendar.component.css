@@ -1,0 +1,10 @@
+.newButton{
+  position: absolute;
+  right: 1.5rem;
+  top: 1.09333rem;
+  background-color: #65af1b;
+  color: white;
+}
+button:focus{
+  background-color: lightgrey;
+}

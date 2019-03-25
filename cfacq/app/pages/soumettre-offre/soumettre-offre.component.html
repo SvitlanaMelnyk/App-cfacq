@@ -1,0 +1,2 @@
+<div class="message" *ngIf="message">{{message}}</div>
+<app-form-post-offer [offer]="offer" buttonText="Soumettre" (submit)="create($event)"></app-form-post-offer>

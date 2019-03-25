@@ -1,0 +1,53 @@
+<footer class="backgroundColor">
+  <div class="container row mBottom hide-on-small-only">
+
+    <div class="col l3 m12 s12 logoMedium">
+      <a routerLink="/home"><img src="assets/images/logo_white9.png" width="120"></a>
+    </div>
+    <div class="col l4 m6 s12 colMedium" *ngFor="let bureau of bureaux">
+      <ul class="borderLine" *ngIf="bureau.adresse.ville == 'Montréal'">
+        <li>{{bureau.nom}} à {{bureau.adresse.ville}}</li>
+        <li>{{bureau.adresse.noCivic}}, {{bureau.adresse.rue}}</li>
+        <li>{{bureau.adresse.rue2}} {{bureau.adresse.codePostal}}</li>
+        <li>Courriel : {{bureau.adresse.courriel}}</li>
+        <li>Téléphone : {{bureau.adresse.telephone}}</li>
+        <li *ngIf="bureau.adresse.telephone2">Téléphone : {{bureau.adresse.telephone2}}</li>
+      </ul>
+    </div>
+
+    <div class="col l3 m6 s6">
+      <ul class="borderLine borderLineMedium">
+        <li><a routerLink="/formations">Formations</a></li>
+        <li><a routerLink="/etudiants">Étudiants</a></li>
+        <li><a routerLink="/employeurs">Employeurs</a></li>
+        <li><a routerLink="/calendrier">Calendrier</a></li>
+        <li><a routerLink="/page-not-found">Archives</a></li>
+      </ul>
+    </div>
+
+    <div class="col l2 m6 s6">
+      <ul class="borderLine borderLineMedium2">
+        <li><a routerLink="/home">Accueil</a></li>
+        <li><a routerLink="/a-propos">À propos</a></li>
+        <li><a routerLink="/actualites">Actualités</a></li>
+        <li><a routerLink="/centre-medias">Centre médias</a></li>
+        <li><a routerLink="/nous-joindre">Nous joindre</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <hr >
+  <div class="container row mTop">
+    <div class="col s12">
+      <a href="https://www.facebook.com/CFACQ-340826109314036/"><img src="assets/images/facebook.png" class="img-social">Rejoignez-nous sur facebook </a>
+       <!--<a href="https://www.facebook.com/CFACQ-340826109314036/"><img src="assets/images/facebook.png" class="img-social"></a>-->
+      <!--<a href="#"><img src="assets/images/instagram.png" class="img-social"></a>-->
+      <!--<a href="#"><img src="assets/images/youtube.png" class="img-social"></a>-->
+      <!--<a href="#"><img src="assets/images/google-plus.png" class="img-social"></a>-->
+      <!--<a href="#"><img src="assets/images/mail.png" class="img-social"></a>-->
+      <!--<a href="#"><img src="assets/images/linkedin.png" class="img-social"></a>-->
+    </div>
+    <div class="footer-copyright text-left">© 2019 CFACQ. Tous droits réservés</div>
+  </div>
+</footer>

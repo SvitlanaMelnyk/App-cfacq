@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h5>Nous joindre</h5>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="bureau" *ngFor="let bureau of bureaux">
+    <div class="bureauContent container">
+      <div class="bureauTitle">Bureau de {{bureau.nom}}</div>
+      <div class="info">
+        <div class="infoElem" *ngIf="bureau.adresse.telephone">
+          <div class="infoText">Téléphone: {{bureau.adresse.telephone}}</div>
+          <div class="infoText" *ngIf="bureau.adresse.telephonePoste">Poste: {{bureau.adresse.telephonePoste}}</div>
+        </div>
+        <div class="infoElem" *ngIf="bureau.adresse.telephone2">
+          <div class="infoText">Téléphone sans frais: {{bureau.adresse.telephone2}}</div>
+          <div class="infoText" *ngIf="bureau.adresse.telephone2Poste">Poste: {{bureau.adresse.telephone2Poste}}</div>
+        </div>
+        <div class="infoElem" *ngIf="bureau.adresse.fax">Télécopieur: {{bureau.adresse.fax}}</div>
+        <div class="infoElem" *ngIf="bureau.adresse.courriel">Courriel: <a href="mailto: {{bureau.adresse.courriel}}">{{bureau.adresse.courriel}}</a></div>
+      </div>
+      <div class="postes">
+        <div class="poste" *ngFor="let poste of bureau.postes">
+          <div class="posteText">Poste {{poste.numero}}: {{poste.nom}}</div>
+          <div class="posteText">{{poste.titre}}</div>
+          <div class="posteText">
+            <a href="mailto: {{poste.courriel}}">{{poste.courriel}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-map [adresse]="bureau.adresse"></app-map>
+    <div class="adresse">{{getAdresseString(bureau.adresse)}}</div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<h1 mat-dialog-title>Nouveau bureau</h1>
+<div mat-dialog-content>
+  <form class="forma-container" [formGroup]="form">
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Nom du bureau" formControlName="nom" required>
+        <mat-error *ngFor="let validation of error_messages.nom">
+          <mat-error class="error-message" *ngIf="form.get('nom').hasError(validation.type) &&
+          (form.get('nom').dirty || form.get('nom').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Numéro civique" formControlName="noCivic" required>
+      <mat-error *ngFor="let validation of error_messages.noCivic">
+        <mat-error class="error-message" *ngIf="form.get('noCivic').hasError(validation.type) &&
+          (form.get('noCivic').dirty || form.get('noCivic').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Rue" formControlName="rue" required>
+      <mat-error *ngFor="let validation of error_messages.rue">
+        <mat-error class="error-message" *ngIf="form.get('rue').hasError(validation.type) &&
+          (form.get('rue').dirty || form.get('rue').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Bureau" formControlName="rue2">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Ville" formControlName="ville">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Code postal" formControlName="codePostal">
+    </mat-form-field>
+    <mat-form-field>
+      <div class="label">Province</div>
+      <mat-select formControlName="province" required>
+        <mat-option *ngFor="let elem of provinces" [value]="elem">{{elem.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <div class="label">Pays</div>
+      <mat-select formControlName="pays" required>
+        <mat-option *ngFor="let elem of pays" [value]="elem">{{elem.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="telephone">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Téléphone" formControlName="telephone">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Poste" formControlName="telephonePoste">
+      </mat-form-field>
+    </div>
+    <div class="telephone">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Téléphone sans frais" formControlName="telephone2">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Poste" formControlName="telephone2Poste">
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Télécopieur" formControlName="fax">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Courriel" formControlName="courriel">
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="close()">Annuler</button>
+      <button mat-button color="primary" mat-raised-button (click)="create()">{{data.bureau.id ? 'Modifier' : 'Créer'}}
+      </button>
+    </div>
+  </form>
+</div>

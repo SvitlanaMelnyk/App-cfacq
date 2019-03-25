@@ -1,0 +1,65 @@
+<p>Liste des offres des employeurs</p>
+<table mat-table [dataSource]="listOffer" class="mat-elevation-z8">
+  <ng-container matColumnDef="nameCompany">
+    <th mat-header-cell *matHeaderCellDef>Nom de l'entreprise</th>
+    <td mat-cell *matCellDef="let element">{{element.nameEmployer}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="titrePoste">
+    <th mat-header-cell *matHeaderCellDef>Titre de post</th>
+    <td mat-cell *matCellDef="let element">{{element.title}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="city">
+    <th mat-header-cell *matHeaderCellDef>Ville</th>
+    <td mat-cell *matCellDef="let element">{{element.city.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="act">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button (click)="show(element)">
+        <i class="material-icons">visibility</i>
+      </button>
+
+      <button mat-raised-button (click)="edit(element)">
+        <i class="material-icons">create</i>
+      </button>
+
+      <button mat-raised-button (click)="deleteOffer(element)">
+        <i class="material-icons">close</i>
+      </button>
+
+      <button mat-raised-button [color]="element.published ? 'primary' : ''" (click)="publier(element)">Publier</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr *ngIf="!listOffer || listOffer.length === 0">
+    <td colspan="4">Il n'y a aucune offre pour l'instant</td>
+  </tr>
+</table>
+<p>Formulaire accueillir un stagiaire</p>
+<table class="mat-elevation-z8">
+  <ng-container matColumnDef="fichier">
+    <td mat-cell>
+      <div class="file-field input-field">
+        <div>
+          <input type="file" name="upload" accept="application/pdf" (change)="onFileChange($event)">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" [ngModel]="fichier.nom" type="text"
+                 placeholder="Téléverser le formulaire PDF">
+        </div>
+      </div>
+    </td>
+    <td mat-cell>
+      <button [disabled]="!fichier || !fichier.id" mat-raised-button (click)="showFichier()">
+        <i class="material-icons">visibility</i>
+      </button>
+      <button mat-raised-button [disabled]="!fichier || !fichier.id" (click)="deleteFichier(element)"><i
+        class="material-icons">close</i></button>
+    </td>
+  </ng-container>
+</table>

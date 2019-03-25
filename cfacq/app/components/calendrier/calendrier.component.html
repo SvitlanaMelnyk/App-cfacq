@@ -1,0 +1,66 @@
+<div class="content">
+  <h5>Calendrier</h5>
+  <div class="headers">
+    <div class="navigation">
+      <div class="button" (click)="prevMonth()">
+        <i class="arrowLeft"></i>
+      </div>
+      <div class="monthLabel">
+        <h5>{{currentMonth}}</h5>
+      </div>
+      <div class="button" (click)="nextMonth()">
+        <i class="arrowRight"></i>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="filters" *ngIf="villesSelectable?.length > 1">
+      <button class="btn grey lighten-3" mat-button [matMenuTriggerFor]="menu">{{selectedVille ? selectedVille.name : 'Ville'}}
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let ville of villesSelectable" [value]="ville" mat-menu-item
+                (click)="getByCity(ville)">{{ville.name}}
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="col s12">
+    <div id="calendar">
+      <ul class="weekdays">
+        <li>Dimanche</li>
+        <li>Lundi</li>
+        <li>Mardi</li>
+        <li>Mercredi</li>
+        <li>Jeudi</li>
+        <li>Vendredi</li>
+        <li>Samedi</li>
+      </ul>
+      <ul class="days">
+        <li class="day" *ngFor="let day of days"
+            [ngClass]="{notCurrentMonth: !day.isCurrentMonth, emptyField: day.events.length == 0, currentDay: day.isCurrentDay}">
+          <div class="date" [ngClass]="{notCurrentMonth: !day.isCurrentMonth }">
+            {{day.day}}
+          </div>
+          <div class="eventContent">
+            <div class="event" *ngFor="let event of day.events" [ngStyle]="{'border-color': event.color}">
+              <div class="background" [ngStyle]="{'background-color': event.color}"></div>
+              <div class="eventText">{{event.name}}</div>
+              <div class="spacer"></div>
+              <div class="eventButton" (click)="onGetInfo(event)">
+                <i class="material-icons">visibility</i>
+              </div>
+              <div class="eventButton" (click)="onEdit(event)" *ngIf="editable">
+                <i class="material-icons">create</i>
+              </div>
+              <div class="eventButton" (click)="onRemove(event)" *ngIf="editable">
+                <i class="material-icons">close</i>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="emptyMessage mobileOnly" *ngIf="noEvent">Il n'y a aucune formation ou événement pour le mois choisi</div>
+    </div>
+  </div>
+</div>
+

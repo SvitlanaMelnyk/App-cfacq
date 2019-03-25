@@ -1,0 +1,30 @@
+::ng-deep .cdk-global-scrollblock {
+  overflow-y: unset;
+}
+
+#nav-mobile {
+  padding: 40px 0 0 50px;
+}
+
+li {
+  margin-bottom: 40px;
+}
+
+a {
+  font-size: 24px;
+  /*color: #818181;*/
+  color: #e0dcdc;
+}
+
+a:hover {
+  /*color: #f1f1f1;*/
+  color: white;
+}
+
+.closebtn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}

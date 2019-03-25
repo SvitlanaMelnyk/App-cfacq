@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Nouveau média</h1>
+<div mat-dialog-content>
+  <form class="forma-container" [formGroup]="form">
+    <div class="content">
+      <div>
+        <div class="label">Image</div>
+        <input #file [hidden]="true" type="file" (change)="onChange($event)" required accept="image/jpeg, image/gif, image/png">
+        <div class="input" [ngClass]="{error: error}"  (click)="file.click()">{{filename}}</div>
+        <mat-error class="error-message" *ngIf="error">{{error}}</mat-error>
+      </div>
+    </div>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Description" formControlName="description" required>
+      <mat-error *ngFor="let validation of error_messages.description">
+        <mat-error class="error-message" *ngIf="form.get('description').hasError(validation.type) &&
+          (form.get('description').dirty || form.get('description').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Lien" formControlName="link" required>
+      <mat-error *ngFor="let validation of error_messages.link">
+        <mat-error class="error-message" *ngIf="form.get('link').hasError(validation.type) &&
+          (form.get('link').dirty || form.get('link').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="close()">Annuler</button>
+      <button mat-button color="primary" mat-raised-button (click)="create()">{{data.media.id ? 'Modifier' : 'Créer'}}
+      </button>
+    </div>
+  </form>
+</div>

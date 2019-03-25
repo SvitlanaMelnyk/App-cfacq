@@ -1,0 +1,131 @@
+.mat-drawer-container {
+  color: #333;
+  background-color: white;
+}
+
+.mat-drawer-content {
+  overflow: hidden;
+}
+
+.content {
+  min-height: calc(100vh - 320px);
+  overflow: auto;
+}
+
+.footer{
+  /*height: 320px;*/
+}
+
+.notHome app-menu-content{
+  display: block;
+}
+
+.notHome .content, .notHome, .notHome mat-sidenav-container{
+  /*height: 100%;*/
+}
+.isAdmin .content, .isAdmin, .isAdmin mat-sidenav-container{
+  height: 100%;
+}
+
+mat-sidenav{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+app-menu-content{
+  display: block;
+}
+
+app-menu-content-mobile {
+  display: none;
+}
+
+app-logo {
+  display: block;
+}
+
+app-logo-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1999px) {
+  .content {
+    min-height: calc(100vh - 314px);
+    overflow: auto;
+  }
+
+  .footer{
+    /*height: 317px;*/
+  }
+}
+
+@media screen and (max-width: 995px) {
+  .content {
+    min-height: calc(100vh - 392px);
+    overflow: auto;
+  }
+
+  .footer{
+    /*height: 392px;*/
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .content {
+    min-height: calc(100vh - 81px);
+    overflow: auto;
+  }
+
+  .footer{
+    height: 81px;
+  }
+
+  app-menu-content {
+    display: none;
+  }
+
+  app-logo {
+    display: none;
+  }
+
+  app-menu-content-mobile {
+    display: block;
+  }
+
+  app-logo-mobile {
+    display: block;
+  }
+
+  .notHome app-menu-content{
+    display: block;
+  }
+
+  .notHome app-logo{
+    display: block;
+  }
+
+  .notHome app-menu-content-mobile{
+    display: none;
+  }
+
+  .notHome app-logo-mobile{
+    display: none;
+  }
+
+  mat-sidenav {
+    width: 300px;
+    background-color: #111;
+  }
+
+  mat-sidenav ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 0 15px;
+  }
+
+  mat-sidenav ul li a:hover {
+    background-color: #0f253e;
+  }
+}

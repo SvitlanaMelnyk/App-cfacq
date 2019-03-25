@@ -1,0 +1,32 @@
+::ng-deep .cdk-global-scrollblock {
+  overflow-y: unset;
+}
+
+mat-form-field input{
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0;
+}
+mat-form-field{
+  width: 100%;
+}
+.label{
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.telephone{
+  display: flex;
+}
+.telephone mat-form-field{
+  width: 145px;
+}
+.telephone mat-form-field:last-child{
+  width: 70px;
+  margin-left: 20px;
+}
+mat-select{
+  height: 25px;
+}
+button:focus{
+  background-color: lightgrey;
+}

@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h5>Étudiants</h5>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="contentDesktop">
+      <div class="col s5 colBackground">
+        <div>
+          <a class="divBorder" routerLink="/etudiants/inscription" routerLinkActive="active">
+            <div class="arrowRight"></div>
+            <h6 class="textPadding cursor h6Display">Inscription aux formations</h6>
+          </a>
+          <a class="divBorder" routerLink="/etudiants/cv" routerLinkActive="active">
+            <div class="arrowRight"></div>
+            <h6 class="textPadding cursor h6Display">Laissez votre CV</h6>
+          </a>
+          <a class="divBorder" routerLink="/etudiants/offres" routerLinkActive="active">
+            <div class="arrowRight"></div>
+            <h6 class="textPadding cursor h6Display">Offres pour les étudiants</h6>
+          </a>
+        </div>
+      </div>
+
+      <div class="col s6">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
+    <div class="contentMobile">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="isInscription">
+          <mat-expansion-panel-header class="menuSection menuElem">
+            <h6 class="textPadding">Inscription aux cours et formations professionnelles</h6>
+          </mat-expansion-panel-header>
+          <app-form-inscription [coursId]="coursId"></app-form-inscription>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem">
+            <h6 class="textPadding">Laissez votre CV</h6>
+          </mat-expansion-panel-header>
+          <app-form-post-cv></app-form-post-cv>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem">
+            <h6 class="textPadding">Offres pour les étudiants</h6>
+          </mat-expansion-panel-header>
+          <app-offers></app-offers>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<h1 mat-dialog-title>Modifier le CV</h1>
+<div mat-dialog-content>
+  <app-form-create-cv [cv]="cv" [editing]="true" (send)="onSubmit($event)" (cancel)="onSubmit()"></app-form-create-cv>
+</div>

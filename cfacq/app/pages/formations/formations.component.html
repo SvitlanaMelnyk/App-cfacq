@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h5>Formations</h5>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="contentDesktop">
+      <div class="col s4 m5 colBackground">
+        <div class="menuSection menuElem" *ngFor="let m of cours" (click)="select(m)">
+          <div class="arrowRight"></div>
+          <h6 class="h5Display textPadding" [innerHTML]="m.nom"></h6>
+        </div>
+      </div>
+
+      <div class="col s7 m6">
+        <div *ngIf="selectedCours">
+          <div class="header">
+            <h5>{{selectedCours.nom}}</h5>
+            <hr class="marginLine">
+          </div>
+          <p [innerHTML]="selectedCours.description"></p>
+          <a *ngIf="selectedCours.link" [routerLink]="selectedCours.link"
+             class="waves-effect waves-light btn grey lighten-3">S'inscrire</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contentMobile">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let m of cours" (click)="select(m)">
+          <mat-expansion-panel-header class="menuSection menuElem">
+            <h6 class="textPadding" [innerHTML]="m.nom"></h6>
+          </mat-expansion-panel-header>
+          <div *ngIf="selectedCours">
+            <p [innerHTML]="selectedCours.description"></p>
+            <a *ngIf="selectedCours.link" [routerLink]="selectedCours.link"
+               class="waves-effect waves-light btn grey lighten-3">S'inscrire</a>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

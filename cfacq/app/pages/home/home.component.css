@@ -1,0 +1,17 @@
+@media screen and (max-width: 601px) {
+  .carouselVisibility {
+    display: none;
+  }
+}
+
+.carouselVisibility {
+  transition: all .50s ease-out;
+  background-color: #f0f0f0;
+}
+
+.carouselVisibility:hover  {
+  -ms-transform: scale(1.01); /* IE 9 */
+  -webkit-transform: scale(1.01); /* Safari */
+  transform: scale(1.01);
+
+}

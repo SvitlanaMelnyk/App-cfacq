@@ -1,0 +1,36 @@
+.newButton {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.09333rem;
+}
+
+.header {
+  margin: 30px 0 0 10px;
+  font-size: 18px;
+}
+
+table {
+  width: 100%;
+  margin-top: 40px;
+}
+
+td.mat-cell:last-of-type {
+  padding-right: 0;
+  width: 400px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.facturePreview{
+  position: fixed;
+  top: 0;
+  left: 80px;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+button:focus{
+  background-color: lightgrey;
+}

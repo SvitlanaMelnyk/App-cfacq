@@ -1,0 +1,76 @@
+.forma-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.marginRow {
+  margin-bottom: 0;
+}
+
+.buttonsForm {
+  text-align: right;
+}
+
+.header{
+  display: none;
+}
+.marginLine{
+  width: 100%;
+}
+
+button {
+  margin-right: 20px;
+  border: 1px solid lightgrey;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: lightgrey;
+}
+
+.btn {
+  text-transform: none !important;
+  color: black !important;
+  margin-top: 0;
+  background-color: lightgrey;
+}
+
+.file-path.validate.valid {
+  border-bottom: none;
+}
+
+.notForm {
+  display: none;
+}
+
+.message{
+  padding: 15px;
+  color: black;
+  border: 2px solid #C2451E;
+  text-align: center;
+}
+
+.message.good{
+  border: 2px solid #65af1b;
+}
+
+@media screen and (min-width: 1024px) {
+  .header{
+    display: block;
+  }
+
+  .buttonsForm {
+    margin-left: .75rem;
+  }
+
+  .input-field {
+    margin-left: .75rem;
+  }
+}
+
+
+

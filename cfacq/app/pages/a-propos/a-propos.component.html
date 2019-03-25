@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h5>À propos</h5>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="contentDesktop">
+      <div class="col s4 colBackground">
+        <div class="menuSection menuElem" *ngFor="let about of aboutList" (click)="clickListAboutUs(about)">
+          <div class="arrowRight"></div>
+          <h6 class="textPadding h6Display">{{about.name}}</h6>
+        </div>
+        <div class="menuSection menuElem" *ngFor="let office of officeList" (click)="clickListOffices(office)">
+          <div class="arrowRight"></div>
+          <h6 class="textPadding h6Display">Nos locaux à {{office.nom}}</h6>
+        </div>
+      </div>
+
+      <div class="col m7">
+        <div *ngIf="selectedAboutUs">
+          <h5>{{selectedAboutUs.name}}</h5>
+          <hr class="marginLine">
+          <div class="imageAboutUs" *ngIf="selectedAboutUs.image != null">
+            <img class="responsive-img img" src="http://localhost/sitecfacq.web/actualite/show?id={{selectedAboutUs.image.id}}">
+          </div>
+          <p class="text aboutText">{{selectedAboutUs.description}}</p>
+        </div>
+        <div *ngIf="selectedBureau">
+          <h5>Nos locaux à {{selectedBureau.nom}}</h5>
+          <hr class="marginLine">
+          <p class="text">Les locaux du Centre de Formation de l’Alimentation et du Commerce du Québec à
+            {{selectedBureau.nom}}.</p>
+          <div class="locaux" *ngFor="let local of selectedBureau.locaux">
+            <!--<div class="localName">{{local.nom}}</div>-->
+            <div class="localSalles">
+              <div class="salle" *ngFor="let salle of local.salles">
+                <div class="salleName">{{salle.nom}}</div>
+                <div class="images">
+                  <div *ngFor="let image of salle.fichiers">
+                    <img class="image responsive-img img"  src="http://localhost/sitecfacq.web/actualite/show?id={{image.id}}" (click)="preview(image.id)">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="contentMobile">
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let about of aboutList" (click)="clickListAboutUs(about)">
+            <mat-expansion-panel-header class="menuSection menuElem">
+              <h6 class="textPadding">{{about.name}}</h6>
+            </mat-expansion-panel-header>
+            <div *ngIf="selectedAboutUs">
+              <div class="imageAboutUs" *ngIf="selectedAboutUs.image">
+                <img class="responsive-img img" src="http://localhost/sitecfacq.web/actualite/show?id={{selectedAboutUs.image.id}}">
+              </div>
+              <p class="text aboutText">{{selectedAboutUs.description}}</p>
+            </div>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel *ngFor="let office of officeList" (click)="clickListOffices(office)">
+            <mat-expansion-panel-header class="menuSection menuElem">
+              <h6 class="textPadding">Nos locaux à {{office.nom}}</h6>
+            </mat-expansion-panel-header>
+            <div *ngIf="selectedBureau">
+              <p class="text">Les locaux du Centre de Formation de l’Alimentation et du Commerce du Québec à
+                {{selectedBureau.nom}}.</p>
+              <div class="locaux" *ngFor="let local of selectedBureau.locaux">
+                <div class="localSalles">
+                  <div class="salle" *ngFor="let salle of local.salles">
+                    <div class="salleName">{{salle.nom}}</div>
+                    <div class="images">
+                      <div *ngFor="let image of salle.fichiers">
+                        <img class="image responsive-img img" src="http://localhost/sitecfacq.web/actualite/show?id={{image.id}}" (click)="preview(image.id)">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+
+        </mat-accordion>
+      </div>
+
+  </div>
+</div>
+<div class="preview" *ngIf="previewImages">
+  <div class="closeButton" (click)="closePreview()">
+    <i class="material-icons">close</i>
+  </div>
+  <slideshow
+    backgroundSize="contain"
+    [autoPlay]="false"
+    [showArrows]="true"
+    [showDots]="false"
+    dotColor="black"
+    [imageUrls]="previewImages"
+    [autoPlayWaitForLazyLoad]="true">
+  </slideshow>
+</div>

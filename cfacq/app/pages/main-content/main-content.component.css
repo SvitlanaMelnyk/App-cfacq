@@ -1,0 +1,86 @@
+/*Actualite*/
+.imageScale {
+  overflow: hidden;
+}
+
+.imgMedias {
+  image-rendering: optimizeQuality;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.imgMedias:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.card {
+  height: 420px;
+}
+
+.card-content {
+  height: 100px;
+}
+
+.card .card-image img {
+  border-radius: 0;
+}
+
+
+/*Video*/
+h5 {
+  margin-top: 30px;
+}
+
+.marginBot {
+  margin-bottom: 30px;
+}
+
+.backgroundColor {
+  background-color: #353333;
+}
+
+.colorText {
+  color: white;
+}
+
+.btn {
+  color: black;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 601px) {
+  .containerlVisibility {
+    display: none;
+  }
+}
+
+.card-image.imageScale {
+  width: 100%;
+  height: 270px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+}
+
+.responsive-img.imgMedias {
+  max-width: 100%;
+  max-height: 270px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.ensavoirplus {
+  float: right;
+  margin-right: 10px;
+  margin-top: -5px;
+}

@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h5>Employeurs</h5>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="contentDesktop">
+      <div class="col s5 colBackground">
+        <a class="divBorder" routerLink="/employeurs/offre" routerLinkActive="active">
+          <div class="arrowRight"></div>
+          <h6 class="textPadding cursor h6Display">Soumettre une offre d'emploi</h6>
+        </a>
+        <a class="divBorder" routerLink="/employeurs/cv" routerLinkActive="active">
+          <div class="arrowRight"></div>
+          <h6 class="textPadding cursor h6Display">CV des étudiants</h6>
+        </a>
+        <a class="divBorder" routerLink="/employeurs/stagiaire" routerLinkActive="active">
+          <div class="arrowRight"></div>
+          <h6 class="textPadding cursor h6Display">Accueillir un stagiaire</h6>
+        </a>
+      </div>
+
+      <div class="col s6">
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+
+    <div class="contentMobile">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem">
+            <h6 class="textPadding">Soumettre une offre d'emploi</h6>
+          </mat-expansion-panel-header>
+          <app-form-post-offer [offer]="offer" buttonText="Soumettre" (submit)="create($event)"></app-form-post-offer>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem">
+            <h6 class="textPadding">CV des étudiants</h6>
+          </mat-expansion-panel-header>
+          <app-cv-students-all></app-cv-students-all>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem">
+            <h6 class="textPadding">Accueillir un stagiaire</h6>
+          </mat-expansion-panel-header>
+          <app-form-search-intern></app-form-search-intern>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+  </div>
+</div>

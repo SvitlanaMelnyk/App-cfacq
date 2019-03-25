@@ -1,0 +1,108 @@
+<form class="forma-container" [formGroup]="inscriptionForm" (ngSubmit)="onSubmitStudentRegister()">
+  <div class="header">
+    <h5>Inscription aux formations</h5>
+    <hr class="marginLine">
+  </div>
+  <div class="marginB">Champ obligatoire*</div>
+  <div>
+    <p class="marginT">Formation * :</p>
+    <mat-form-field class="field" required>
+      <mat-select formControlName="cours" required>
+        <mat-option *ngFor="let elem of formations" [value]="elem">{{elem.nom}}</mat-option>
+      </mat-select>
+      <mat-error *ngFor="let validation of error_messages.formation">
+        <mat-error class="error-message" *ngIf="inscriptionForm.get('formation').hasError(validation.type) &&
+          (inscriptionForm.get('formation').dirty || inscriptionForm.get('formation').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <div>
+      <input formControlName="name" type="text" matInput placeholder="Prénom" required>
+      <mat-error *ngFor="let validation of error_messages.name">
+        <mat-error class="error-message" *ngIf="inscriptionForm.get('name').hasError(validation.type) &&
+        (inscriptionForm.get('name').dirty || inscriptionForm.get('name').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div>
+      <input formControlName="surname" type="text" matInput placeholder="Nom" required>
+      <mat-error *ngFor="let validation of error_messages.surname">
+        <mat-error class="error-message" *ngIf="inscriptionForm.get('surname').hasError(validation.type) &&
+        (inscriptionForm.get('surname').dirty || inscriptionForm.get('surname').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input formControlName="email" type="email" matInput placeholder="Courriel" required>
+      <mat-error *ngFor="let validation of error_messages.email">
+        <mat-error class="error-message" *ngIf="inscriptionForm.get('email').hasError(validation.type) &&
+        (inscriptionForm.get('email').dirty || inscriptionForm.get('email').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input formControlName="telephone" type="tel" matInput placeholder="Téléphone" required>
+      <mat-error *ngFor="let validation of error_messages.telephone">
+        <mat-error class="error-message" *ngIf="inscriptionForm.get('telephone').hasError(validation.type) &&
+        (inscriptionForm.get('telephone').dirty || inscriptionForm.get('telephone').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="field">
+    <div class="inputForm">
+      <input type="text" matInput placeholder="Ville" formControlName="city" required [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option.name}}</mat-option>
+      </mat-autocomplete>
+      <mat-error *ngFor="let validation of error_messages.city">
+        <mat-error class="error-message" *ngIf="inscriptionForm.get('city').hasError(validation.type) &&
+          (inscriptionForm.get('city').dirty || inscriptionForm.get('city').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input formControlName="address" type="text" matInput placeholder="Address" required>
+      <mat-error *ngFor="let validation of error_messages.address">
+        <mat-error class="error-message" *ngIf="inscriptionForm.get('address').hasError(validation.type) &&
+        (inscriptionForm.get('address').dirty || inscriptionForm.get('address').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input formControlName="birthday" type="date" matInput placeholder="Date de naissance" required>
+      <mat-error *ngFor="let validation of error_messages.birthday">
+        <mat-error class="error-message" *ngIf="inscriptionForm.get('birthday').hasError(validation.type) &&
+        (inscriptionForm.get('birthday').dirty || inscriptionForm.get('birthday').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+  <div class="row">
+    <div class="buttonsForm col s12 m12 l12">
+      <button mat-button class="col btn grey lighten-3" [disabled]="loading">{{editing ? 'Modifier' : 'S\'inscrire'}}</button>
+      <button mat-button class="col btn grey lighten-3" type="button" *ngIf="editing" (click)="onCancel()">Annuler</button>
+    </div>
+  </div>
+</form>
+

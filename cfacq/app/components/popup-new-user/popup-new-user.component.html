@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>Nouvel utilisateur</h1>
+<div mat-dialog-content>
+  <form class="forma-container" [formGroup]="form">
+    <mat-form-field *ngIf="!data.user.id">
+      <div>
+        <div class="formTitle">Rôle</div>
+        <mat-select required formControlName="role">
+          <mat-option *ngFor="let elem of roles" [value]="elem">{{elem.nom}}</mat-option>
+        </mat-select>
+        <mat-error *ngFor="let validation of error_messages.role">
+          <mat-error class="error-message" *ngIf="form.get('role').hasError(validation.type) &&
+            (form.get('role').dirty || form.get('role').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field *ngIf="!isEmployeur()">
+      <div>
+        <input [readonly]="data.user.id" type="text" matInput placeholder="Nom d'utilisateur" formControlName="username" required>
+        <mat-error *ngFor="let validation of error_messages.username">
+          <mat-error class="error-message" *ngIf="form.get('username').hasError(validation.type) &&
+          (form.get('username').dirty || form.get('username').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Prénom" formControlName="prenom" required>
+        <mat-error *ngFor="let validation of error_messages.prenom">
+          <mat-error class="error-message" *ngIf="form.get('prenom').hasError(validation.type) &&
+          (form.get('prenom').dirty || form.get('prenom').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Nom" formControlName="nom" required>
+        <mat-error *ngFor="let validation of error_messages.nom">
+          <mat-error class="error-message" *ngIf="form.get('nom').hasError(validation.type) &&
+          (form.get('nom').dirty || form.get('nom').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Courriel" formControlName="courriel" required>
+        <mat-error *ngFor="let validation of error_messages.courriel">
+          <mat-error class="error-message" *ngIf="form.get('courriel').hasError(validation.type) &&
+          (form.get('courriel').dirty || form.get('courriel').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field *ngIf="!data.user.id && !isEmployeur()">
+      <div>
+        <input type="password" matInput placeholder="Mot de passe" formControlName="password" required>
+        <mat-error *ngFor="let validation of error_messages.password">
+          <mat-error class="error-message" *ngIf="form.get('password').hasError(validation.type) &&
+          (form.get('password').dirty || form.get('password').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="close()">Annuler</button>
+      <button mat-button color="primary" mat-raised-button (click)="create()">{{data.user.id ? 'Modifier' : 'Créer'}}
+      </button>
+    </div>
+  </form>
+</div>

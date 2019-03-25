@@ -1,0 +1,98 @@
+<h1 mat-dialog-title>Nouvel événement</h1>
+<div mat-dialog-content>
+  <form class="forma-container" [formGroup]="form">
+    <mat-form-field>
+      <input type="text" matInput placeholder="Nom de l'événement" formControlName="name" required>
+      <mat-error *ngFor="let validation of error_messages.name">
+        <mat-error class="error-message" *ngIf="form.get('name').hasError(validation.type) &&
+          (form.get('name').dirty || form.get('name').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="datetime-local" matInput placeholder="Début" formControlName="dateStart" required>
+      <mat-error *ngFor="let validation of error_messages.dateStart">
+        <mat-error class="error-message" *ngIf="form.get('dateStart').hasError(validation.type) &&
+          (form.get('dateStart').dirty || form.get('dateStart').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="datetime-local" matInput placeholder="Fin" formControlName="dateEnd" required>
+      <mat-error *ngFor="let validation of error_messages.dateEnd">
+        <mat-error class="error-message" *ngIf="form.get('dateEnd').hasError(validation.type) &&
+          (form.get('dateEnd').dirty || form.get('dateEnd').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Numéro civique" formControlName="noCivic" required>
+      <mat-error *ngFor="let validation of error_messages.noCivic">
+        <mat-error class="error-message" *ngIf="form.get('noCivic').hasError(validation.type) &&
+          (form.get('noCivic').dirty || form.get('noCivic').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Rue" formControlName="rue" required>
+      <mat-error *ngFor="let validation of error_messages.rue">
+        <mat-error class="error-message" *ngIf="form.get('rue').hasError(validation.type) &&
+          (form.get('rue').dirty || form.get('rue').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Appartement" formControlName="rue2">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Ville" formControlName="ville" required [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option.name}}</mat-option>
+      </mat-autocomplete>
+      <mat-error *ngFor="let validation of error_messages.ville">
+        <mat-error class="error-message" *ngIf="form.get('ville').hasError(validation.type) &&
+          (form.get('ville').dirty || form.get('ville').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Code postal" formControlName="codePostal">
+    </mat-form-field>
+    <mat-form-field>
+      <div class="label">Province</div>
+      <mat-select formControlName="province" required>
+        <mat-option *ngFor="let elem of provinces" [value]="elem">{{elem.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <div class="label">Contact</div>
+      <mat-select formControlName="poste" required>
+        <mat-option *ngFor="let elem of postes" [value]="elem">{{elem.nom}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Coût" formControlName="price" required>
+      <mat-error *ngFor="let validation of error_messages.price">
+        <mat-error class="error-message" *ngIf="form.get('price').hasError(validation.type) &&
+          (form.get('price').dirty || form.get('price').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input class="color" type="color" matInput placeholder="Couleur" formControlName="color" required>
+      <mat-error *ngFor="let validation of error_messages.color">
+        <mat-error class="error-message" *ngIf="form.get('color').hasError(validation.type) &&
+          (form.get('color').dirty || form.get('color').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="close()">Annuler</button>
+      <button mat-button color="primary" mat-raised-button (click)="create()">{{data.event.id ? 'Modifier' : 'Créer'}}
+      </button>
+    </div>
+  </form>
+</div>

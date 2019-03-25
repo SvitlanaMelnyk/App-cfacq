@@ -1,0 +1,34 @@
+.col {
+  margin-top: 25px;
+}
+
+p.titre-offer{
+  text-decoration: underline;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.titre-offer {
+  font-weight: bold;
+}
+
+.buttonsForm {
+  text-align: right;
+}
+
+button {
+  margin-right: 20px;
+  margin-bottom: 5px;
+  border: 1px solid lightgrey;
+  display: inline-block;
+}
+
+.btn {
+  text-transform: none!important;
+  color: black!important;
+  margin-top: 0;
+}
+
+

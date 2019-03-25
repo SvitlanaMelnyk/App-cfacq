@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h5>Actualités</h5>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="contentDesktop">
+      <div class="col s4 colBackground">
+        <div>
+          <div  class="menuSection menuElem" (click)="clickListActualites('toutes')">
+            <div class="arrowRight"></div>
+            <h6 class="textPadding h6Display">Toutes les actualités</h6>
+          </div>
+          <div  class="menuSection menuElem" (click)="clickListActualites('formations')">
+            <div class="arrowRight"></div>
+            <h6 class="textPadding h6Display">Formations</h6>
+          </div>
+          <div  class="menuSection menuElem" (click)="clickListActualites('etudiants')">
+            <div class="arrowRight"></div>
+            <h6 class="textPadding h6Display">Étudiants</h6>
+          </div>
+          <div  class="menuSection menuElem" (click)="clickListActualites('employeurs')">
+            <div class="arrowRight"></div>
+            <h6 class="textPadding h6Display">Employeurs</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s7">
+        <app-news [newsList]="newsList"></app-news>
+      </div>
+    </div>
+
+    <div class="contentMobile">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem" (click)="clickListActualites('toutes')">
+            <h6 class="textPadding">Toutes les actualités</h6>
+          </mat-expansion-panel-header>
+          <app-news [newsList]="newsList"></app-news>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem" (click)="clickListActualites('formations')">
+            <h6 class="textPadding">Formations</h6>
+          </mat-expansion-panel-header>
+          <app-news [newsList]="newsList"></app-news>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem" (click)="clickListActualites('etudiants')">
+            <h6 class="textPadding">Étudiants</h6>
+          </mat-expansion-panel-header>
+         <app-news [newsList]="newsList"></app-news>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="menuSection menuElem" (click)="clickListActualites('employeurs')">
+            <h6 class="textPadding">Employeurs</h6>
+          </mat-expansion-panel-header>
+          <app-news [newsList]="newsList"></app-news>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+  </div>
+</div>

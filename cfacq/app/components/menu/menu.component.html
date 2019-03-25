@@ -1,0 +1,13 @@
+<div class="nav-wrapper">
+  <div data-target="mobile-demo" class="sidenav-trigger right-align" (click)="toggleSideNav()"><i class="material-icons">menu</i></div>
+  <div class="menu">
+    <ul class="hide-on-med-and-down">
+      <li><a routerLink="/home">Accueil</a></li>
+      <li><a routerLink="/a-propos">À propos</a></li>
+      <li><a routerLink="/actualites">Actualités</a></li>
+      <li><a routerLink="/centre-medias">Centre médias</a></li>
+      <li><a routerLink="/nous-joindre">Nous joindre</a></li>
+      <li><div class="logout" *ngIf="isEmployeur()" (click)="logout()">Déconnexion</div></li>
+    </ul>
+  </div>
+</div>

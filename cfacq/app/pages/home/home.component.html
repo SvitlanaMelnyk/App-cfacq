@@ -1,0 +1,17 @@
+<div>
+  <div class="carouselVisibility" *ngIf="images && images.length > 0">
+    <slideshow
+      [height]="height"
+      minHeight="400px"
+      [autoPlay]="true"
+      [autoPlayInterval]="7000"
+      [showArrows]="false"
+      [showDots]="true"
+      dotColor="black"
+      [imageUrls]="images"
+      [stopAutoPlayOnSlide]="true"
+      [autoPlayWaitForLazyLoad]="true">
+    </slideshow>
+  </div>
+  <app-main-content></app-main-content>
+</div>

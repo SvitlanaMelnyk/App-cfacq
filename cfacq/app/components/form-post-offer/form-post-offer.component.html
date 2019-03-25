@@ -1,0 +1,243 @@
+<form class="forma-container" [formGroup]="form" (ngSubmit)="onSubmitPostOffer()">
+  <div class="header" *ngIf="!editing">
+    <h5>Soumettre une offre d'emploi</h5>
+    <hr class="marginLine">
+  </div>
+  <div class="marginB">Champ obligatoire*</div>
+  <p>Renseignements sur l'employeur :</p>
+
+  <mat-form-field>
+    <div>
+      <input formControlName="title" type="text" matInput placeholder="Titre de poste" required>
+      <mat-error *ngFor="let validation of error_messages.title">
+        <mat-error class="error-message" *ngIf="form.get('title').hasError(validation.type) &&
+        (form.get('title').dirty || form.get('title').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div>
+      <input formControlName="nameEmployer" type="text" matInput placeholder="Nom de l'employeur" required>
+      <mat-error *ngFor="let validation of error_messages.nameEmployer">
+        <mat-error class="error-message" *ngIf="form.get('nameEmployer').hasError(validation.type) &&
+        (form.get('nameEmployer').dirty || form.get('nameEmployer').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="field">
+    <div class="inputForm">
+      <input type="text" matInput placeholder="Ville" formControlName="city" required [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option.name}}</mat-option>
+      </mat-autocomplete>
+      <mat-error *ngFor="let validation of error_messages.city">
+        <mat-error class="error-message" *ngIf="form.get('city').hasError(validation.type) &&
+          (form.get('city').dirty || form.get('city').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input formControlName="address" type="text" matInput placeholder="Adresse" required>
+      <mat-error *ngFor="let validation of error_messages.address">
+        <mat-error class="error-message" *ngIf="form.get('address').hasError(validation.type) &&
+        (form.get('address').dirty || form.get('address').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input formControlName="telephone" type="tel" matInput placeholder="Téléphone" required>
+      <mat-error *ngFor="let validation of error_messages.telephone">
+        <mat-error class="error-message" *ngIf="form.get('telephone').hasError(validation.type) &&
+        (form.get('telephone').dirty || form.get('telephone').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input type="email" matInput placeholder="Courriel" formControlName="email" required>
+      <mat-error *ngFor="let validation of error_messages.email">
+        <mat-error class="error-message" *ngIf="form.get('email').hasError(validation.type) &&
+        (form.get('email').dirty || form.get('email').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div>
+      <input formControlName="sector" type="text" matInput placeholder="Secteur d'activité de l'entreprise" required>
+      <mat-error *ngFor="let validation of error_messages.sector">
+        <mat-error class="error-message" *ngIf="form.get('sector').hasError(validation.type) &&
+        (form.get('sector').dirty || form.get('sector').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input type="text" matInput placeholder="Adresse du site Internet" formControlName="website">
+      <mat-error *ngFor="let validation of error_messages.website">
+        <mat-error class="error-message" *ngIf="form.get('website').hasError(validation.type) &&
+        (form.get('website').dirty || form.get('website').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <p>Personne contact :</p>
+
+  <mat-form-field>
+    <div>
+      <input type="text" matInput placeholder="Nom et Prénom" formControlName="contactName" required>
+      <mat-error *ngFor="let validation of error_messages.contactName">
+        <mat-error class="error-message" *ngIf="form.get('contactName').hasError(validation.type) &&
+        (form.get('contactName').dirty || form.get('contactName').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input type="tel" matInput placeholder="Téléphone" formControlName="contactTelephone" required>
+      <mat-error *ngFor="let validation of error_messages.contactTelephone">
+        <mat-error class="error-message" *ngIf="form.get('contactTelephone').hasError(validation.type) &&
+        (form.get('contactTelephone').dirty || form.get('contactTelephone').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="inputForm">
+      <input type="email" matInput placeholder="Courriel" formControlName="contactEmail" required>
+      <mat-error *ngFor="let validation of error_messages.contactEmail">
+        <mat-error class="error-message" *ngIf="form.get('contactEmail').hasError(validation.type) &&
+        (form.get('contactEmail').dirty || form.get('contactEmail').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <p>Indiquez dans quel(s) domaine(s) votre entreprise embauche du personnel * :</p>
+
+  <label formArrayName="domaines" *ngFor="let domaine of form.controls.domaines?.controls; let i = index">
+    <mat-checkbox [formControlName]="i">{{domaines[i].name}}</mat-checkbox>
+  </label>
+  <mat-error *ngFor="let validation of error_messages.domaines">
+    <mat-error class="error-message" *ngIf="!form.controls.domaines?.valid">{{validation.message}}
+    </mat-error>
+  </mat-error>
+
+  <mat-form-field class="marginT">
+    <div class="inputForm">
+      <input type="text" matInput placeholder="Lieu physique" formControlName="physicalAddress" required>
+      <mat-error *ngFor="let validation of error_messages.physicalAddress">
+        <mat-error class="error-message" *ngIf="form.get('physicalAddress').hasError(validation.type) &&
+        (form.get('physicalAddress').dirty || form.get('physicalAddress').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <p>Type de poste * :</p>
+  <label formArrayName="typePostes" *ngFor="let post of form.controls.typePostes?.controls; let i = index">
+    <mat-checkbox [formControlName]="i">{{typePostes[i].name}}</mat-checkbox>
+  </label>
+  <mat-error *ngFor="let validation of error_messages.typePostes">
+    <mat-error class="error-message" *ngIf="!form.controls.typePostes?.valid">{{validation.message}}
+    </mat-error>
+  </mat-error>
+
+  <mat-form-field class="marginT">
+    <div>
+      <textarea matInput placeholder="Sommaire" formControlName="summary" required></textarea>
+      <mat-error *ngFor="let validation of error_messages.summary">
+        <mat-error class="error-message" *ngIf="form.get('summary').hasError(validation.type) &&
+          (form.get('summary').dirty || form.get('summary').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+
+  <div formArrayName="tasks" *ngFor="let task of form.get('tasks').controls; let i = index">
+    <mat-form-field class="matFieldDelete">
+      <div class="inputForm" [formGroupName]="i">
+        <input matInput placeholder="Tâches" formControlName="text">
+        <mat-error *ngFor="let validation of error_messages.tasks">
+          <mat-error class="error-message" *ngIf="form.get('tasks').hasError(validation.type) &&
+            (form.get('tasks').dirty || form.get('tasks').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <span *ngIf="i > 0"><i class="tiny material-icons" (click)="deleteTask(i)">clear</i></span>
+  </div>
+  <div class="buttonElem">
+    <button type="button" mat-button class="col btn grey lighten-3" (click)="addTask()">Ajouter une tâche</button>
+  </div>
+  <div formArrayName="competences" *ngFor="let competence of form.get('competences').controls; let i = index">
+    <mat-form-field class="matFieldDelete">
+      <div class="inputForm" [formGroupName]="i">
+        <input matInput placeholder="Compétences recherchées" formControlName="text">
+        <mat-error *ngFor="let validation of error_messages.competences">
+          <mat-error class="error-message" *ngIf="form.get('competences').hasError(validation.type) &&
+                (form.get('competences').dirty || form.get('competences').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <span *ngIf="i > 0"><i class="tiny material-icons" (click)="deleteCompetence(i)">clear</i></span>
+  </div>
+  <div class="buttonElem">
+    <button type="button" mat-button class="col btn grey lighten-3" (click)="addCompetence()">Ajouter une compétence</button>
+  </div>
+  <div formArrayName="requirements" *ngFor="let requirement of form.get('requirements').controls; let i = index">
+    <mat-form-field class="matFieldDelete">
+      <div class="inputForm" [formGroupName]="i">
+        <input matInput placeholder="Exigences" formControlName="text">
+        <mat-error *ngFor="let validation of error_messages.requirements">
+          <mat-error class="error-message" *ngIf="form.get('requirements').hasError(validation.type) &&
+                (form.get('requirements').dirty || form.get('requirements').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+    <span *ngIf="i > 0"><i class="tiny material-icons" (click)="deleteRequirement(i)">clear</i></span>
+  </div>
+  <div class="buttonElem">
+    <button type="button" mat-button class="col btn grey lighten-3" (click)="addRequirement()">Ajouter une exigence</button>
+  </div>
+  <mat-form-field>
+    <div>
+      <textarea matInput placeholder="Autres informations" formControlName="otherInformation"></textarea>
+      <mat-error *ngFor="let validation of error_messages.otherInformation">
+        <mat-error class="error-message" *ngIf="form.get('otherInformation').hasError(validation.type) &&
+                  (form.get('otherInformation').dirty || form.get('otherInformation').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </div>
+  </mat-form-field>
+  <div class="row">
+    <div class="buttonsForm col s12 m12 l12">
+      <button mat-button class="col btn grey lighten-3" type="button" *ngIf="editing" (click)="onCancel()" tabindex="-1">Annuler</button>
+      <button mat-button class="col btn grey lighten-3" [disabled]="loading" tabindex="-1">{{editing ? 'Modifier' : 'Soumettre'}}</button>
+    </div>
+  </div>
+</form>
+
+
+

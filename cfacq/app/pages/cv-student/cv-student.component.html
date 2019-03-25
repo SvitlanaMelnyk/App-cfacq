@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="container" *ngIf="cv">
+
+    <p class="titre-offer text-bold">{{cv.jobTitleCV.name}} ({{cv.city.name}})</p>
+
+    <p><b>{{cv.student.name}} {{cv.student.surname}}</b></p>
+
+    <div>Adresse : {{cv.student.address}}</div>
+
+    <div>Portable : {{cv.student.telephone}}</div>
+
+    <div>Courriel : {{cv.student.email}}</div>
+
+    <p class="titre-offer">Présentation</p>
+    <div>{{cv.summary}}</div>
+
+    <p class="titre-offer" *ngIf="cv.competences != '' ">Compétences</p>
+    <ul class="browser-default" *ngIf="cv.competences != '' ">
+      <li *ngFor="let competence of cv.competences">{{competence}}</li>
+    </ul>
+
+    <p class="titre-offer">Formation</p>
+    <div *ngIf="cv.student.cours != null">{{cv.student.coursString}}</div>
+
+    <p class="titre-offer" *ngIf="cv.otherInformation">Autre informations</p>
+    <div>{{cv.otherInformation}}</div>
+
+    <p  class="titre-offer">Type du poste</p>
+    <div *ngFor="let type of cv.typePost">{{type.name}}</div>
+
+    <p  class="titre-offer">Date</p>
+    <div>{{cv.date | date:"mediumDate"}}</div>
+
+    <div class="row" *ngIf="emailContact">
+      <div class="buttonsForm col s12 m12 l12">
+        <a href="mailto:{{emailContact}}"><button mat-button class="col btn grey lighten-3">Contactez-nous</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,101 @@
+.contentDesktop {
+  display: none;
+}
+
+.contentMobile {
+  background-color: rgba(192, 192, 192, 0.1);
+  box-shadow: 5px 5px 5px rgba(192, 192, 192, 0.6);
+  border: 1px solid lightgray;
+}
+
+mat-expansion-panel-header {
+  border-bottom: 1px solid lightgray;
+}
+
+span.mat-expansion-indicator::before {
+  color: black;
+}
+
+span.mat-expansion-indicator::after {
+  color: black;
+}
+
+.menuSection {
+  padding: 0.75rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.menuSection:last-child {
+  border: none;
+}
+
+.menuElem {
+  color: #039be5;
+  cursor: pointer;
+  display: flex;
+}
+
+.menuElem:hover {
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.row .col{
+  padding: 0;
+}
+
+.divBorder {
+  border-bottom: 1px solid lightgray;
+  padding: 0.75rem;
+  display: block;
+}
+
+.textPadding {
+  padding: 0 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .contentDesktop {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .colBackground {
+    background-color: rgba(192, 192, 192, 0.1);
+    margin-right: 50px;
+    box-shadow: 5px 5px 5px rgba(192, 192, 192, 0.6);
+    border: 1px solid lightgray;
+  }
+
+  .divBorder:hover {
+    background: rgba(192, 192, 192, 0.1);
+  }
+
+  .arrowRight {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .cursor {
+    cursor: pointer;
+  }
+
+  .h6Display {
+    display: inline-block;
+    margin: 10px;
+    padding: 0;
+  }
+
+  .contentMobile {
+    display: none;
+  }
+
+  ::ng-deep .marginLine {
+    margin-bottom: 20px;
+  }
+}
+

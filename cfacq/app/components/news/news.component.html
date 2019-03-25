@@ -1,0 +1,15 @@
+<div class="row actualite" *ngFor="let news of newsList">
+  <h5>{{news.name}}</h5>
+  <div class="actualiteContent">
+    <div class="image">
+      <img *ngIf="news.images && news.images[0]"
+           src="http://localhost/sitecfacq.web/actualite/show?id={{news.images[0].id}}">
+    </div>
+    <div class="description">
+      <div class="ellipsis">{{news.description}}</div>
+      <button mat-button class="col btn grey lighten-3 consultButton" [routerLink]="['/nouvelle', {id: news.id}]">
+        <i class="material-icons right">add</i>En savoir
+      </button>
+    </div>
+  </div>
+</div>

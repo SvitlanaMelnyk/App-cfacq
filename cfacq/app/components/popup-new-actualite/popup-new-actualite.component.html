@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Nouvelle actualité</h1>
+<div mat-dialog-content>
+  <form class="forma-container" [formGroup]="form">
+      <mat-form-field>
+        <div class="label">Nom de section</div>
+        <mat-select formControlName="category" required>
+          <mat-option *ngFor="let elem of categories" [value]="elem">{{elem.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="Titre de la nouvelle" formControlName="name" required>
+        <mat-error *ngFor="let validation of error_messages.name">
+          <mat-error class="error-message" *ngIf="form.get('name').hasError(validation.type) &&
+          (form.get('name').dirty || form.get('name').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+    <div class="fichiers">
+      <div class="fichiersTitle">
+        <div class="fichiersTitleText">Images</div>
+        <div class="spacer"></div>
+        <button type="button" mat-button class="col btn grey lighten-3" (click)="addFichier($event)">+</button>
+      </div>
+      <div class="fichier" *ngFor="let fichier of fichiers; index as i">
+        <div class="inputForm inputWrapper">
+          <input #file type="file" (change)="onFileChange(i, $event)" accept="image/jpeg, image/gif, image/png">
+          <div class="input" [ngClass]="{error: error}" (click)="file.click()">{{fichier.data.nom}}</div>
+        </div>
+        <span class="deleteButton"><i class="tiny material-icons" (click)="deleteFichier(i)">clear</i></span>
+      </div>
+    </div>
+    <mat-form-field>
+      <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+      <mat-error *ngFor="let validation of error_messages.description">
+        <mat-error class="error-message" *ngIf="form.get('description').hasError(validation.type) &&
+          (form.get('description').dirty || form.get('description').touched)">{{validation.message}}
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+
+
+    <div mat-dialog-actions>
+      <button mat-button type="button" (click)="close()">Annuler</button>
+      <button mat-button color="primary" mat-raised-button (click)="create()">{{data.actualite.id ? 'Modifier' : 'Créer'}}
+      </button>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,21 @@
+<div class="app" [ngClass]="{notHome: notHome, isAdmin: isAdmin}">
+  <mat-sidenav-container>
+    <mat-sidenav position="end" #sidenav mode="mode.value" [(opened)]="opened">
+      <app-sidenav (close)="sidenav.close();"></app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content">
+        <app-menu *ngIf="!isAdmin" [sidenav]="sidenav"></app-menu>
+        <app-logo *ngIf="!isAdmin"></app-logo>
+        <app-logo-mobile *ngIf="!isAdmin"></app-logo-mobile>
+        <app-menu-content [employeur]="isEmployeur()" *ngIf="!isAdmin && !isLogin"></app-menu-content>
+        <app-menu-content-mobile [employeur]="isEmployeur()" *ngIf="!isAdmin && !isLogin"></app-menu-content-mobile>
+        <router-outlet></router-outlet>
+      </div>
+      <div class="footer" *ngIf="!isAdmin">
+        <app-footer></app-footer>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

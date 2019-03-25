@@ -1,0 +1,43 @@
+<form [formGroup]="joindreCV" (submit)="sendCv()">
+  <div class="header">
+    <h5>Laissez votre CV</h5>
+    <hr class="marginLine">
+  </div>
+  <div *ngIf="!success && !sending">
+    <p class="bold">Veuillez joindre votre CV (format .pdf)</p>
+    <div class="row marginRow">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Joindre votre CV</span>
+          <input type="file" name="upload" accept="application/pdf" formControlName="fileType"
+                 (change)="onFileChange($event)">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Charger votre CV">
+          <mat-error *ngFor="let validation of error_messages.fileType">
+            <mat-error class="error-message" *ngIf="joindreCV.get('fileType').hasError(validation.type) &&
+      (joindreCV.get('fileType').dirty || joindreCV.get('fileType').touched)">{{validation.message}}
+            </mat-error>
+          </mat-error>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="buttonsForm">
+        <button mat-button class="col btn grey lighten-3" type="submit">Envoyer</button>
+      </div>
+    </div>
+  </div>
+  <div class="message" [ngClass]="{good: success}" *ngIf="sending && success !== null">
+    <div class="messateText" *ngIf="success">CV envoyé avec succès.</div>
+    <div class="messateText" *ngIf="!success">Une erreur est survenu lors de l'envoi du cv.</div>
+  </div>
+</form>
+
+<div [ngClass]="{notForm: notForm}" *ngIf="!success && !sending">
+  <p class="bold">ou remplir le formulaire suivant</p>
+  <app-form-create-cv #form (send)="sendToServer($event)"></app-form-create-cv>
+</div>
+
+

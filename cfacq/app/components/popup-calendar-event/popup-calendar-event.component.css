@@ -1,0 +1,34 @@
+::ng-deep .cdk-global-scrollblock {
+  overflow-y: unset;
+}
+
+.info{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.infoText{
+
+}
+.infoValueElem{
+  font-weight: normal;
+}
+span{
+  font-weight: normal;
+}
+.description{
+  font-weight: normal;
+  white-space: pre-line;
+}
+.buttons{
+  margin-top: 20px;
+}
+
+button {
+  background-color: #65af1b;
+  color: white;
+}
+
+.mat-dialog-content {
+  overflow: visible;
+  padding-bottom: 15px;
+}

@@ -1,0 +1,266 @@
+
+.filters button {
+  float: right;
+  margin-right: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: table;
+  margin-bottom: 40px;
+}
+
+li {
+  display: block;
+  float: left;
+  width: 14.342%;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+ul.weekdays {
+  height: 40px;
+  background: #65af1b;
+}
+
+ul.weekdays li {
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 20px;
+  border: none !important;
+  padding: 10px 6px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.days li {
+  height: 160px;
+}
+
+.days li:hover {
+  background: #d3d3d3;
+}
+
+.date {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+  color: black;
+  width: 30px;
+  height: 25px;
+  padding: 2px 6px 0 6px;
+  border-radius: 50%;
+  /*border: 1px solid #ccc;*/
+  float: right;
+}
+
+.event {
+  clear: both;
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  line-height: 14px;
+  display: flex;
+  position: relative;
+  border: 1px solid;
+}
+
+.event .background {
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.eventText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.eventButton {
+  color: #000;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.eventButton i {
+  color: #000;
+  border: none;
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+}
+
+.other-month {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.colMargin {
+  margin-top: 10px;
+}
+
+.colAlign {
+  text-align: right;
+}
+
+::ng-deep.mat-menu-content {
+  padding: 0 !important;
+}
+
+.btn {
+  text-transform: none !important;
+  color: black !important;
+  margin-top: 0;
+
+}
+
+.btnMargin {
+  margin-right: 10px;
+}
+
+.mat-button {
+  padding: 0 0 0 8px;
+  border-radius: 0;
+}
+
+.btn.grey.lighten-3 {
+  padding: 0 30px;
+  margin-top: 13px;
+  margin-right: 12px;
+  margin-bottom: 15px;
+}
+
+h5 {
+  display: inline-block;
+}
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.arrowRight {
+  margin: 25px 0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.arrowLeft {
+  margin: 25px 0;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.notCurrentMonth {
+  background: rgb(240, 240, 240);
+  color: grey !important;
+}
+
+.currentDay {
+  background-color: rgba(256, 244, 0, 0.14);
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+}
+
+button:focus {
+  background-color: #65af1b;
+  color: white;
+}
+
+.button:hover {
+  background-color: lightgray;
+}
+
+.headers {
+  display: flex;
+}
+
+.navigation {
+  display: flex;
+}
+
+.monthLabel {
+  width: 200px;
+  text-align: center;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.filters {
+
+}
+
+.emptyMessage {
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/*Style mobile*/
+@media (max-width: 768px) {
+  .weekdays {
+    display: none;
+  }
+
+  li {
+    height: auto !important;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: -1px;
+  }
+
+  .date {
+    float: none;
+  }
+
+  .emptyField {
+    display: none !important;
+  }
+}
+
+@media (max-width: 601px) {
+  .headers {
+    flex-direction: column;
+  }
+
+  .emptyField {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mobileOnly {
+    display: none;
+  }
+}
+
+

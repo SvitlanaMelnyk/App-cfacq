@@ -1,0 +1,11 @@
+.container{
+  padding-bottom: 1rem;
+  display: table;
+}
+
+@media (max-width: 601px) {
+  .container{
+    padding-bottom: 1rem;
+    display: block;
+  }
+}

@@ -1,0 +1,116 @@
+.contentDesktop {
+  display: none;
+}
+
+.contentMobile {
+  background-color: rgba(192, 192, 192, 0.1);
+  box-shadow: 5px 5px 5px rgba(192, 192, 192, 0.6);
+  border: 1px solid lightgray;
+}
+
+mat-expansion-panel-header {
+  border-bottom: 1px solid lightgray;
+}
+
+span.mat-expansion-indicator::before {
+  color: black;
+}
+
+span.mat-expansion-indicator::after {
+  color: black;
+}
+
+.menuSection {
+  padding: 0.75rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.menuSection:last-child {
+  border: none;
+}
+
+.menuElem {
+  color: #039be5;
+  cursor: pointer;
+  display: flex;
+}
+
+.menuElem:hover {
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.textPadding {
+  padding: 0 10px;
+}
+
+.header {
+  display: none;
+}
+
+.marginLine {
+  width: 100%;
+}
+
+.btn {
+  text-transform: none !important;
+  color: black !important;
+  margin-top: 0;
+  float: right;
+}
+
+
+@media screen and (min-width: 1024px) {
+  .contentMobile {
+    display: none;
+  }
+
+  .row .col {
+    padding: 0;
+  }
+
+  .contentDesktop {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .colBackground {
+    background-color: rgba(192, 192, 192, 0.1);
+    margin-right: 50px;
+    box-shadow: 5px 5px 5px rgba(192, 192, 192, 0.6);
+    border: 1px solid lightgray;
+  }
+
+  ::ng-deep .arrowRight {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 15px;
+  }
+
+  .h5Display {
+    display: inline-block;
+    margin: 10px;
+    padding: 0;
+  }
+
+  .header {
+    display: block;
+  }
+
+  ::ng-deep .marginLine {
+    margin-bottom: 20px;
+  }
+
+  ::ng-deep .btn {
+    text-transform: none !important;
+    color: black !important;
+    float: right;
+    margin-top: 15px;
+    border: 1px solid lightgrey;
+  }
+
+}

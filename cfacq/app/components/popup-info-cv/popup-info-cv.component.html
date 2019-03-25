@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>CV de {{cv.student.name}} {{cv.student.surname}}</h1>
+<div mat-dialog-content class="content">
+  <p class="titre-offer text-bold">{{cv.jobTitleCV.name}} ({{cv.city.name}})</p>
+
+  <div>Adresse : {{cv.student.address}}</div>
+
+  <div>Portable : {{cv.student.telephone}}</div>
+
+  <div>Courriel : {{cv.student.email}}</div>
+
+  <p class="titre-offer">Presentation</p>
+  <div>{{cv.summary}}</div>
+
+  <p class="titre-offer" *ngIf="cv.competences != '' ">Compétences</p>
+  <ul class="browser-default" *ngIf="cv.competences != '' ">
+    <li *ngFor="let competence of cv.competences">{{competence}}</li>
+  </ul>
+
+  <p class="titre-offer">Formation</p>
+  <div *ngIf="cv.student.cours != null">{{cv.student.coursString}}</div>
+
+  <p class="titre-offer" *ngIf="cv.otherInformation">Autre informations</p>
+  <div>{{cv.otherInformation}}</div>
+
+  <p class="titre-offer">Type du poste</p>
+  <div *ngFor="let type of cv.typePost">{{type.name}}</div>
+
+  <p class="titre-offer">Date</p>
+  <div>{{cv.date | date:"mediumDate"}}</div>
+  <div mat-dialog-actions>
+    <button mat-button type="button" (click)="close()" tabindex="-1">Fermer</button>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="container" *ngIf="offer">
+
+    <p class="titre-offer text-bold">{{offer.title}} ({{offer.city.name}})</p>
+
+    <p><b>{{offer.nameEmployer}}</b></p>
+
+    <div>Secteur d'activité : {{offer.sector}}</div>
+
+    <div>Adresse : {{offer.address}}</div>
+
+    <div>Téléphone : {{offer.telephone}}</div>
+
+    <div>Courriel : {{offer.email}}</div>
+
+    <div *ngIf="offer.website">Site Internet : {{offer.website}}</div>
+
+    <p>{{offer.summary}} </p>
+
+    <p class="titre-offer" *ngIf="offer.tasks != '' ">Principales tâches</p>
+    <ul class="browser-default" *ngIf="offer.tasks != '' ">
+      <li *ngFor="let task of offer.tasks">{{task}}</li>
+    </ul>
+
+    <p class="titre-offer" *ngIf="offer.competences != '' ">Compétences recherchées</p>
+    <ul class="browser-default" *ngIf="offer.competences != '' ">
+      <li *ngFor="let competence of offer.competences">{{competence}}</li>
+    </ul>
+
+    <p class="titre-offer" *ngIf="offer.requirements != '' ">Exigences</p>
+    <ul class="browser-default" *ngIf="offer.requirements != '' ">
+      <li *ngFor="let requirement of offer.requirements">{{requirement}}</li>
+    </ul>
+
+    <p class="titre-offer">Type du poste</p>
+    <div *ngFor="let type of offer.typePostes">{{type.name}}</div>
+
+    <p class="titre-offer" *ngIf="offer.otherInformation">Autre informations</p>
+    <p>{{offer.otherInformation}}</p>
+
+    <p class="titre-offer">Lieu physique</p>
+    <div>{{offer.physicalAddress}}</div>
+
+    <p  class="titre-offer">Date</p>
+    <div>{{offer.date | date:"mediumDate"}}</div>
+
+  <div class="row">
+    <div class="buttonsForm col s12 m12 l12">
+      <a href="mailto:alavoie@cfacq.ca"><button mat-button class="col btn grey lighten-3">Postuler</button></a>
+      <button mat-button class="col btn grey lighten-3" routerLink="/etudiants">Fermer</button>
+    </div>
+  </div>
+</div>
+</div>
+

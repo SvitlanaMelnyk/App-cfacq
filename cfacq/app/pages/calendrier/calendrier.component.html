@@ -1,0 +1,3 @@
+<div class="container">
+  <app-calendrier-component [events]="events" (changeMonth)="onChangeMonth($event.date, $event.dateEnd, $event.ville)" (getInfo)="onGetInfo($event)"></app-calendrier-component>
+</div>

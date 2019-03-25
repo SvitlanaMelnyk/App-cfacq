@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 right-align">
+      <button mat-button class="btn grey lighten-3 marginButton" routerLink="/actualites">Retour aux nouvelles</button>
+    </div>
+    <div class="col s12">
+      <p class="textTransform margin size">Nouvelle: {{singleNews.name}}</p>
+    </div>
+  </div>
+  <div class="row news">
+    <img *ngIf="images && images[0]"
+         [src]="images[0]" alt=""
+         class="responsive-img floatMargin photoArticle" (click)="preview(singleNews.images[0].id)">
+    <p *ngIf="singleNews.description" class="fontSize textJustify">{{singleNews.description}}</p>
+  </div>
+  <p class="clear"></p>
+  <div class="row images">
+    <div class="card" *ngFor="let image of singleNews.images | slice:1" (click)="preview(image.id)">
+      <div class="card-image">
+        <img src="http://localhost/sitecfacq.web/actualite/show?id={{image.id}}" alt=""
+             class="responsive-img marginImages">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="preview" *ngIf="previewImages">
+  <div class="closeButton" (click)="closePreview()">
+    <i class="material-icons">close</i>
+  </div>
+  <slideshow
+    backgroundSize="contain"
+    [autoPlay]="false"
+    [showArrows]="true"
+    [showDots]="false"
+    dotColor="black"
+    [imageUrls]="previewImages"
+    [autoPlayWaitForLazyLoad]="true">
+  </slideshow>
+</div>

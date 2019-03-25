@@ -1,0 +1,14 @@
+.adminContent{
+  height: 100%;
+  display: flex;
+}
+.container{
+  position: absolute;
+  left: 220px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  max-width: initial;
+  width: calc(100% - 220px);
+  overflow: auto;
+}

@@ -1,0 +1,65 @@
+<p>Liste de CV des étudiants</p>
+<table mat-table [dataSource]="listCv" class="mat-elevation-z8">
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef> Nom</th>
+    <td mat-cell *matCellDef="let element"> {{element.student.surname}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Prenom</th>
+    <td mat-cell *matCellDef="let element"> {{element.student.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="titre">
+    <th mat-header-cell *matHeaderCellDef> Titre de post</th>
+    <td mat-cell *matCellDef="let element"> {{element.jobTitleCV.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="city">
+    <th mat-header-cell *matHeaderCellDef> Ville</th>
+    <td mat-cell *matCellDef="let element"> {{element.city.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="act">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button (click)="showInfo(element)">
+        <i class="material-icons">visibility</i>
+      </button>
+      <button mat-raised-button (click)="edit(element)">
+        <i class="material-icons">create</i>
+      </button>
+      <button mat-raised-button (click)="deleteCv(element)"><i class="material-icons">close</i></button>
+      <button mat-raised-button (click)="publier(element)" [color]="element.published ? 'primary' : ''">Publier</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<p>Liste de CV des étudiants en format PDF</p>
+<table mat-table [dataSource]="listCvFichier" class="mat-elevation-z8">
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element">{{element.date | date : 'medium' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Fichier</th>
+    <td mat-cell *matCellDef="let element">{{element.fichier.nom}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="act">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button (click)="showFichier(element)">
+        <i class="material-icons">visibility</i>
+      </button>
+      <button mat-raised-button (click)="deleteCvFichier(element)"><i class="material-icons">close</i></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsFichier"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsFichier;"></tr>
+</table>

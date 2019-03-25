@@ -1,0 +1,50 @@
+::ng-deep .cdk-global-scrollblock {
+  overflow-y: unset;
+}
+
+mat-form-field input{
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0;
+}
+mat-form-field{
+  width: 100%;
+}
+.label{
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+mat-select{
+  height: 25px;
+}
+.content{
+  display: table;
+  margin-bottom: 24px;
+  width: 100%;
+}
+.input{
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid #949494;
+  margin-bottom: 10px;
+  line-height: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.error{
+  border-color: red;
+}
+
+.mat-dialog-content {
+  overflow: visible;
+  padding-bottom: 15px;
+}
+
+textarea{
+  min-height: 200px;
+}
+
+button:focus{
+  background-color: lightgrey;
+}

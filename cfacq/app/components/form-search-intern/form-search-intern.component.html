@@ -1,0 +1,204 @@
+<form [formGroup]="searchInternForm">
+  <div class="header">
+    <h5>Accueillir un stagiaire</h5>
+    <hr class="marginLine">
+  </div>
+  <ng-container *ngIf="hasFichierFormulaire">
+  <p class="bold">Veuillez télécharger le <a href="http://localhost/sitecfacq.web/intern/showFormulaire?attachment=true" class="color">formulaire</a></p>
+  <div class="row marginRow">
+    <div class="col s12 m12 l12">
+      <a href="http://localhost/sitecfacq.web/intern/showFormulaire?attachment=true"><i class="small material-icons cursor">file_download</i></a>
+    </div>
+  </div>
+<p class="bold">ou remplir le formulaire suivant</p>
+  </ng-container>
+  <ng-container *ngIf="!hasFichierFormulaire">
+    <p class="bold">Veuillez remplir le formulaire suivant</p>
+  </ng-container>
+  <div class="forma-container">
+    <h5>Formulaire</h5>
+    <p>Renseignements sur l'employeur :</p>
+    <mat-form-field>
+      <div>
+        <input formControlName="employer" type="text" matInput placeholder="Nom de l'employeur" required>
+        <mat-error *ngFor="let validation of error_messages.employer">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('employer').hasError(validation.type) &&
+          (searchInternForm.get('employer').dirty || searchInternForm.get('employer').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <div class="inputForm">
+        <input type="text" matInput placeholder="Ville" formControlName="city" required [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option.name}}</mat-option>
+        </mat-autocomplete>
+        <mat-error *ngFor="let validation of error_messages.city">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('city').hasError(validation.type) &&
+          (searchInternForm.get('city').dirty || searchInternForm.get('city').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <div class="inputForm">
+        <input formControlName="address" type="text" matInput placeholder="Adresse" required>
+        <mat-error *ngFor="let validation of error_messages.address">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('address').hasError(validation.type) &&
+          (searchInternForm.get('address').dirty || searchInternForm.get('address').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <div class="inputForm">
+        <input formControlName="telephone" type="tel" matInput placeholder="Téléphone" required>
+        <mat-error *ngFor="let validation of error_messages.telephone">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('telephone').hasError(validation.type) &&
+          (searchInternForm.get('telephone').dirty || searchInternForm.get('telephone').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <div>
+        <input formControlName="sector" type="text" matInput placeholder="Secteur d'activité de l'entreprise" required>
+        <mat-error *ngFor="let validation of error_messages.sector">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('sector').hasError(validation.type) &&
+          (searchInternForm.get('sector').dirty || searchInternForm.get('sector').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <div>
+        <input type="number" matInput placeholder="Nbre d’employés" formControlName="nbreEmployee" required>
+        <mat-error *ngFor="let validation of error_messages.nbreEmployee">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('nbreEmployee').hasError(validation.type) &&
+          (searchInternForm.get('nbreEmployee').dirty || searchInternForm.get('nbreEmployee').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <div class="inputForm">
+        <input type="text" matInput placeholder="Adresse du site Internet" formControlName="siteAdresse" required>
+        <mat-error *ngFor="let validation of error_messages.siteAdresse">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('siteAdresse').hasError(validation.type) &&
+          (searchInternForm.get('siteAdresse').dirty || searchInternForm.get('siteAdresse').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+
+    <p>Personne contact :</p>
+
+    <mat-form-field>
+      <div>
+        <input type="text" matInput placeholder="Nom et Prénom" formControlName="fullNamePerson" required>
+        <mat-error *ngFor="let validation of error_messages.fullNamePerson">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('fullNamePerson').hasError(validation.type) &&
+          (searchInternForm.get('fullNamePerson').dirty || searchInternForm.get('fullNamePerson').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <div class="inputForm">
+        <input type="tel" matInput placeholder="Téléphone" formControlName="telephonePerson" required>
+        <mat-error *ngFor="let validation of error_messages.telephonePerson">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('telephonePerson').hasError(validation.type) &&
+          (searchInternForm.get('telephonePerson').dirty || searchInternForm.get('telephonePerson').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <div class="inputForm">
+        <input type="email" matInput placeholder="Courriel" formControlName="emailPerson" required>
+        <mat-error *ngFor="let validation of error_messages.emailPerson">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('emailPerson').hasError(validation.type) &&
+          (searchInternForm.get('emailPerson').dirty || searchInternForm.get('emailPerson').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <p>Description du mandat que vous proposez à un(e) stagiaire</p>
+
+      <mat-form-field>
+        <div>
+          <textarea matInput placeholder="Information détaillée concernant les tâches prévues" formControlName="informationDetail" required></textarea>
+          <mat-error *ngFor="let validation of error_messages.informationDetail">
+            <mat-error class="error-message" *ngIf="searchInternForm.get('informationDetail').hasError(validation.type) &&
+              (searchInternForm.get('informationDetail').dirty || searchInternForm.get('informationDetail').touched)">{{validation.message}}
+            </mat-error>
+          </mat-error>
+        </div>
+      </mat-form-field>
+
+    <mat-form-field>
+      <div>
+        <input type="number" matInput placeholder="Nombre maximum de stagiaires que vous souhaiteriez accueillir" formControlName="nbreStagiare" required>
+        <mat-error *ngFor="let validation of error_messages.nbreStagiare">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('nbreStagiare').hasError(validation.type) &&
+              (searchInternForm.get('nbreStagiare').dirty || searchInternForm.get('nbreStagiare').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <p>Y a-t-il des chances d’emploi après le stage?</p>
+    <mat-radio-group formControlName="checkGetJob" class="marginB">
+      <div class="radioGroup">
+        <div class="radio">
+          <mat-radio-button value="Oui">Oui</mat-radio-button>
+        </div>
+        <div class="radio">
+          <mat-radio-button value="Non">Non</mat-radio-button>
+        </div>
+      </div>
+    </mat-radio-group>
+
+    <p>Pensez-vous rémunérer le stage (salaire)? </p>
+    <mat-radio-group formControlName="checkSalary" class="marginB">
+      <div class="radioGroup">
+        <div class="radio">
+          <mat-radio-button value="Oui">Oui</mat-radio-button>
+        </div>
+        <div class="radio">
+          <mat-radio-button value="Non">Non</mat-radio-button>
+        </div>
+      </div>
+    </mat-radio-group>
+
+    <mat-form-field class="marginT">
+      <div>
+        <textarea matInput placeholder="Autres exigences du stagiaire" formControlName="autre"></textarea>
+        <mat-error *ngFor="let validation of error_messages.autre">
+          <mat-error class="error-message" *ngIf="searchInternForm.get('autre').hasError(validation.type) &&
+                (searchInternForm.get('autre').dirty || searchInternForm.get('autre').touched)">{{validation.message}}
+          </mat-error>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <div class="row">
+      <div class="buttonsForm col s12 m12 l12">
+        <button mat-button class="col btn grey lighten-3" (click)="onSubmitSearchIntern()" type="button">Soumettre</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+

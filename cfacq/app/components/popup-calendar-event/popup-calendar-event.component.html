@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{event.name}}</h1>
+<div mat-dialog-content class="content">
+  <div class="info">Quand: <span>{{getHeures()}}</span></div>
+  <div class="info">Où: <span>{{getAdresseString()}}</span></div>
+  <div class="info">
+    <div class="infoText">Contact:</div>
+    <div class="infoValue">
+      <div class="infoValueElem">{{event.poste.nom}}</div>
+      <div class="infoValueElem">{{event.poste.bureau.adresse.telephone}}</div>
+      <div class="infoValueElem">{{event.poste.courriel}}</div>
+    </div>
+  </div>
+  <div class="info">Coût: <span>{{getPrice(event.price)}}$</span></div>
+  <div class="info description">{{event.description}}</div>
+  <div class="buttons" mat-dialog-actions>
+    <button mat-button type="button" (click)="close()" tabindex="-1">Fermer</button>
+  </div>
+</div>

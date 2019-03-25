@@ -1,0 +1,51 @@
+.marginT{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.colPadding{
+  padding: 0;
+}
+
+.btn {
+  text-transform: none!important;
+  color: black!important;
+  margin-top: 0;
+}
+
+.btn.grey.lighten-3{
+  float: right;
+}
+
+.btn:hover {
+  background-color: lightgrey;
+}
+
+.clear{
+  clear: both;
+}
+
+mat-checkbox span.mat.checkbox-label {
+  font-size: 20px!important;
+  padding-right: 10px;
+}
+
+::ng-deep.mat-form-field-infix{
+  width: 143px !important;
+}
+
+::ng-deep.mat-select-arrow{
+  margin: 0 !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+  background-color: #757971 !important;
+}
+
+::ng-deep.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: black;
+}
+
+::ng-deep.mat-primary .mat-pseudo-checkbox-checked{
+  background-color: #757971 !important;
+}

@@ -1,0 +1,75 @@
+<div class="header">Liste des administrateurs</div>
+<button class="newButton" mat-raised-button (click)="newUser()">Nouvel utilisateur</button>
+<table mat-table [dataSource]="users" class="mat-elevation-z8">
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef>Username </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prenom">
+    <th mat-header-cell *matHeaderCellDef> Prénom </th>
+    <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="courriel">
+    <th mat-header-cell *matHeaderCellDef> Courriel </th>
+    <td mat-cell *matCellDef="let element"> {{element.courriel}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> Role </th>
+    <td mat-cell *matCellDef="let element"> {{element.role.nom}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="act">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button (click)="newUser(element)"><i class="material-icons">create</i></button>
+      <button mat-raised-button (click)="deleteUser(element)"><i class="material-icons">close</i></button>
+      <button mat-raised-button (click)="changePassord(element)"><i class="material-icons">lock</i></button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div class="header">Liste des employeurs</div>
+<table mat-table [dataSource]="employeurs" class="mat-elevation-z8">
+  <ng-container matColumnDef="prenom">
+    <th mat-header-cell *matHeaderCellDef> Prénom </th>
+    <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="courriel">
+    <th mat-header-cell *matHeaderCellDef> Courriel </th>
+    <td mat-cell *matCellDef="let element"> {{element.courriel}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> Role </th>
+    <td mat-cell *matCellDef="let element"> {{element.role.nom}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="act">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button (click)="newUser(element)"><i class="material-icons">create</i></button>
+      <button mat-raised-button (click)="deleteUser(element)"><i class="material-icons">close</i></button>
+      <button mat-raised-button (click)="copyLink(element)">Lien</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsEmployeur"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsEmployeur;"></tr>
+</table>
+

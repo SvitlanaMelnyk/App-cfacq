@@ -1,0 +1,58 @@
+
+.header {
+  display: none;
+}
+
+.marginLine {
+  width: 100%;
+}
+
+.bottomLine {
+  border-bottom: 1px solid lightgrey;
+  padding: 20px 0;
+}
+
+.float {
+  float: right;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+p.titre-offer {
+  padding-top: 10px;
+}
+
+p.titre-offer a {
+  text-decoration: underline;
+  color: #222222;
+}
+
+a {
+  color: #0a0a0a;
+  text-decoration: underline;
+}
+
+.textAlign {
+  text-align: justify;
+}
+
+.clear {
+  clear: both;
+}
+
+.message {
+  padding: 15px;
+  border: 1px solid red;
+  color: red;
+}
+
+@media screen and (min-width: 1024px) {
+  .header{
+    display: block;
+  }
+}
+
+
+

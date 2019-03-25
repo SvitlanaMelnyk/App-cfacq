@@ -1,0 +1,173 @@
+.contentDesktop {
+  display: none;
+}
+
+.contentMobile {
+  background-color: rgba(192, 192, 192, 0.1);
+  box-shadow: 5px 5px 5px rgba(192, 192, 192, 0.6);
+  border: 1px solid lightgray;
+}
+
+mat-expansion-panel-header {
+  border-bottom: 1px solid lightgray;
+}
+
+span.mat-expansion-indicator::before {
+  color: black !important;
+}
+
+span.mat-expansion-indicator::after {
+  color: black !important;
+}
+
+.menuSection {
+  padding: 0.75rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.menuSection:last-child {
+  border: none;
+}
+
+.menuElem {
+  color: #039be5;
+  cursor: pointer;
+  display: flex;
+}
+
+.menuElem:hover {
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.textPadding {
+  padding: 0 10px;
+}
+
+.imageAboutUs{
+  width: 100%;
+  background-color: #f0f0f0;
+  box-shadow: 4px 4px 8px rgba(111, 110, 110, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.imageAboutUs img{
+  width: auto;
+  height: auto;
+  max-height: 350px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.text {
+  text-align: justify;
+}
+
+.salleName{
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.images{
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+.image{
+  cursor: pointer;
+}
+
+.aboutText {
+  white-space: pre-line;
+}
+
+.preview{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.closeButton{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) {
+  .contentDesktop {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .colBackground {
+    background-color: rgba(192, 192, 192, 0.1);
+    margin-right: 50px;
+    box-shadow: 5px 5px 5px rgba(192, 192, 192, 0.6);
+    border: 1px solid lightgray;
+  }
+
+  .row .col{
+    padding: 0;
+  }
+
+  ::ng-deep .arrowRight {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 15px;
+  }
+
+
+  .h6Display {
+    display: inline-block;
+    margin: 10px;
+    padding: 0;
+  }
+
+  .contentMobile {
+    display: none;
+  }
+
+  .marginLine {
+    margin-bottom: 20px;
+  }
+
+  .image {
+    width: 300px;
+    margin: 0 20px 20px 0;
+    box-shadow: 4px 4px 8px rgba(111, 110, 110, 0.6);
+  }
+
+  .text {
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image{
+    width: 200px;
+    margin: 0 20px 20px 0;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .image{
+    width: 100%;
+    margin: 0 20px 20px 0;
+  }
+  .images{
+    display: flex;
+    flex-direction: column;
+  }
+}

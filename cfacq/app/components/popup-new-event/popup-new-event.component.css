@@ -1,0 +1,23 @@
+::ng-deep .cdk-global-scrollblock {
+  overflow-y: unset;
+}
+
+mat-form-field{
+  width: 100%;
+}
+mat-form-field input{
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0;
+
+}
+textarea{
+  min-height: 200px;
+}
+.color{
+  height: 40px;
+}
+.mat-dialog-content {
+  overflow: visible;
+  padding-bottom: 15px;
+}

@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>{{offer.title}} ({{offer.city.name}})</h1>
+<div mat-dialog-content class="content">
+  <p><b>{{offer.nameEmployer}}</b></p>
+
+  <div>Secteur d'activité : {{offer.sector}}</div>
+
+  <div>Adresse : {{offer.address}}</div>
+
+  <div>Téléphone : {{offer.telephone}}</div>
+
+  <div>Courriel : {{offer.email}}</div>
+
+  <div *ngIf="offer.website">Site Internet : {{offer.website}}</div>
+
+  <p>{{offer.summary}} </p>
+
+  <p class="titre-offer" *ngIf="offer.tasks != '' ">Principales tâches</p>
+  <ul class="browser-default" *ngIf="offer.tasks != '' ">
+    <li *ngFor="let task of offer.tasks">{{task}}</li>
+  </ul>
+
+  <p class="titre-offer" *ngIf="offer.competences != '' ">Compétences recherchées</p>
+  <ul class="browser-default" *ngIf="offer.competences != '' ">
+    <li *ngFor="let competence of offer.competences">{{competence}}</li>
+  </ul>
+
+  <p class="titre-offer" *ngIf="offer.requirements != '' ">Exigences</p>
+  <ul class="browser-default" *ngIf="offer.requirements != '' ">
+    <li *ngFor="let requirement of offer.requirements">{{requirement}}</li>
+  </ul>
+
+  <p class="titre-offer">Type du poste</p>
+  <div *ngFor="let type of offer.typePostes">{{type.name}}</div>
+
+  <p class="titre-offer" *ngIf="offer.otherInformation">Autre informations</p>
+  <p>{{offer.otherInformation}}</p>
+
+  <p class="titre-offer">Lieu physique</p>
+  <div>{{offer.physicalAddress}}</div>
+
+  <p class="titre-offer">Date à remplir</p>
+  <div>{{offer.date | date:"mediumDate"}}</div>
+  <div mat-dialog-actions>
+    <button mat-button type="button" (click)="close()" tabindex="-1">Fermer</button>
+  </div>
+</div>

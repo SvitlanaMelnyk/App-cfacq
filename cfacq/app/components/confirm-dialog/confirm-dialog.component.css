@@ -1,0 +1,17 @@
+.title{
+  margin: -24px -24px 24px;
+  padding: 10px 24px;
+  background-color: #333;
+  color: #fff;
+}
+
+.message{
+  margin-bottom: 24px;
+}
+.mat-dialog-actions{
+  margin-bottom: -8px;
+}
+
+button:focus{
+  background-color: lightgrey;
+}
